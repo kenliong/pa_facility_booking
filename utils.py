@@ -109,7 +109,7 @@ def dayOfWeek(date):
 def parse_date_input(date_str):
 
     llm = get_llm_instance()
-
+    '''
     agent = create_python_agent(
         llm=llm,
         tool=PythonREPLTool(),
@@ -125,20 +125,41 @@ def parse_date_input(date_str):
     output = agent.run(f"""
     If today is [{dayOfWeek('today')} {todayDate()}(dd/mm/yyyy)], what will [{date_str}]'s date be? The output date should always be either in the future of today's date or today's date, and in "dd/mm/yyyy".
     """)
-    
-
-
-
 
     ## TO DO: to format this in a prompt template?
+    '''
     
+    date_schema = ResponseSchema(
+        name='requested_date',
+        description="The output date in dd/mm/yyyy format"
+    )
+
+    response_schemas = [
+        date_schema
+    ]
     
-
-
-
+    output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
+    format_instructions = output_parser.get_format_instructions()
     
-    print(output)
-    return output
+    instruction_template = """
+If today is {today_day_of_week} {today_date_str}(dd/mm/yyyy), what will [{date_str}] date be? The output date should always be either in the future of today's date or today's date, and in "dd/mm/yyyy".
+
+{format_instructions}
+    """
+
+    prompt = ChatPromptTemplate.from_template(template=instruction_template)
+
+    messages = prompt.format_messages(
+        date_str = date_str,
+        format_instructions=format_instructions,
+        today_day_of_week = dayOfWeek('today'),
+        today_date_str = todayDate()
+    )
+    response = llm(messages) #might want to find the langchain equivalent of invoking the prompt template.
+    output_dict = output_parser.parse(response.content)
+
+    print(output_dict)
+    return output_dict['requested_date']
 
 def getcoordinates(address):
     req = requests.get('https://developers.onemap.sg/commonapi/search?searchVal='+address+'&returnGeom=Y&getAddrDetails=Y&pageNum=1')
@@ -316,6 +337,17 @@ def get_available_slots_from_facility_slots_json(f_slots_json, facility_id):
 
 def respond_to_user_input(user_input_str):
     
+    '''
+    To do:
+    1. ConversationBufferMemory, so the user can have a conversation with the bot
+    2. Maybe make the flow below a agent-tool framework? To make it more natural? Either way will need to account for when the user just says "hello"
+    3. A quicker way to parse a date.  Currently this is the bottleneck.
+    4. And to also account for more facility types, more date searches, and more locales?
+
+    '''
+
+
+
     output_dict = parse_user_input(user_input_str)
 
     if output_dict['requested_date'] != -1:
