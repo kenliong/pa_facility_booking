@@ -5,6 +5,7 @@ from pandas import json_normalize
 from datetime import datetime
 import calendar
 from math import radians, cos, sin, asin, sqrt
+import time
 
 from langchain.chat_models import AzureChatOpenAI
 from langchain.output_parsers import ResponseSchema, StructuredOutputParser
