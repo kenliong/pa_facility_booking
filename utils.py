@@ -88,7 +88,7 @@ def get_llm_instance(model='gpt-4'):
 
     llm = ChatVertexAI(
         model_name="chat-bison@001",
-        max_output_tokens=500,
+        max_output_tokens=1024,
         temperature=0,
         top_p=0.8,
         top_k=40,
