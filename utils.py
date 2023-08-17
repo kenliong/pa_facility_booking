@@ -538,7 +538,7 @@ AI:
                 #    continue
 
                 available_slots_str += f'\n Current availability for {fid} on {input_date}: \n'
-                available_slots_str += get_facility_availability(fid, input_date) + ' \n'
+                available_slots_str += result + ' \n'
 
 
         system_template = """
