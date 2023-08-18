@@ -37,7 +37,7 @@ footer {
     return css_modifier
 
 def get_llm_api_config_details():
-    '''
+    
     config = {
         'api_type' : st.secrets['api_type'],
         'api_base' : st.secrets['api_base'],
@@ -65,12 +65,13 @@ def get_llm_api_config_details():
     )
 
     return google_api_cred
+    '''
     
 
 @st.cache_resource 
 def get_llm_instance(model='gpt-4'):   
 
-    '''
+    
     #model = 'gpt-4' | 'gpt-4-32k' | 'gpt-35-turbo'
     config = get_llm_api_config_details()
     llm = AzureChatOpenAI(
@@ -96,7 +97,7 @@ def get_llm_instance(model='gpt-4'):
         credentials = config,
         project=config.project_id
     )
-    
+    '''
     return llm
 
 ## Date formatter
