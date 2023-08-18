@@ -19,7 +19,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.output_parsers import PydanticOutputParser
 from langchain.chains import ConversationChain
 from pydantic import BaseModel, Field
-from typing import List, Union
+from typing import List
 
 def get_custom_css_modifier():
     css_modifier = """
@@ -138,7 +138,7 @@ def get_calendar_reference():
 
 def get_interested_dates(date_str):
     class InterestedDates(BaseModel):
-        interested_dates: List[Union[str,int]] = Field(description='a list of dates in dd/mm/yyyy format that the client could be interested in when booking the facility. If this information is not found, output [-1].')
+        interested_dates: List[str] = Field(description='a list of dates in dd/mm/yyyy format that the client could be interested in when booking the facility. If this information is not found, output ["none"].')
 
     parser = PydanticOutputParser(pydantic_object=InterestedDates)
     format_instructions = parser.get_format_instructions()
@@ -151,7 +151,7 @@ The calendar for the next 15 days are as deliminted by triple backticks:
 
 Today's date is {today_day_of_week} {today_date_str}.
 Identify the closest date or dates `{date_str}` could be referring to from the calendar above in dd/mm/yyyy format. 
-If there are no valid dates in the calendar above or if the date doesn't exist, do not make up an answer and just output [-1].
+If there are no valid dates in the calendar above or if the date doesn't exist, do not make up an answer and just output ["none"].
 {format_instructions}
     """
     prompt = ChatPromptTemplate.from_template(
@@ -401,8 +401,8 @@ def parse_user_input(user_input, session_state_chat_history):
     
     class UserInput(BaseModel):
         type_of_request: str = Field(description='the type of request that the client is making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>')
-        interested_locations: List[Union[str,int]] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output ["-1"]')
-        interested_dates: List[Union[str,int]] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output ["-1"]')
+        interested_locations: List[str] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output ["none"]')
+        interested_dates: List[str] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output ["none"]')
     
     parser = PydanticOutputParser(pydantic_object=UserInput)
     format_instructions = parser.get_format_instructions()
@@ -422,8 +422,8 @@ Latest human input: ```{user_input}```
 Extract the following information:
 
 type_of_request: The type of request that the client is making making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>
-location: A list of all potential locations that the client is interested in. If this information is not found, output ["-1"].
-requested_date: A list of all relative date expressions that the client is interested in. Copy the exact text as provided by the client without making any additional inferences. If this information is not found, output ["-1"].
+location: A list of all potential locations that the client is interested in. If this information is not found, output ["none"].
+requested_date: A list of all relative date expressions that the client is interested in. Copy the exact text as provided by the client without making any additional inferences. If this information is not found, output ["none"].
 
 {format_instructions}
     """
@@ -480,7 +480,7 @@ Human: {input}
 AI:
 """
 
-    elif "-1" in user_request.interested_dates:
+    elif "none" in user_request.interested_dates:
         # it is a request, but either the date or location is missing, will need to prompt users to get that info
         system_template = """
 The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
@@ -493,7 +493,7 @@ Human: {input}
 AI:
 """
 
-    elif "-1" in user_request.interested_locations:
+    elif "none" in user_request.interested_locations:
         # it is a request, but either the date or location is missing, will need to prompt users to get that info
         system_template = """
 The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
@@ -523,7 +523,7 @@ AI:
 
         for input_date in user_request.interested_dates:
             cleaned_dates = get_interested_dates(input_date)
-            cleaned_interested_dates.extend([date_parser.parse(i, dayfirst=True).strftime('%d/%m/%Y') for i in cleaned_dates.interested_dates if i != -1])
+            cleaned_interested_dates.extend([date_parser.parse(i, dayfirst=True).strftime('%d/%m/%Y') for i in cleaned_dates.interested_dates if i != "none"])
 
         user_request.interested_dates = sorted(list(set(cleaned_interested_dates)))
         print(f'after cleaning dates: {user_request}')
