@@ -401,8 +401,8 @@ def parse_user_input(user_input, session_state_chat_history):
     
     class UserInput(BaseModel):
         type_of_request: str = Field(description='the type of request that the client is making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>')
-        interested_locations: List[str] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output [-1] as a list with just 1 element.')
-        interested_dates: List[str] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output [-1] as a list with just 1 element.')
+        interested_locations: List[str] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output [-1,-1]')
+        interested_dates: List[str] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output [-1,-1]')
     
     parser = PydanticOutputParser(pydantic_object=UserInput)
     format_instructions = parser.get_format_instructions()
@@ -422,8 +422,8 @@ Latest human input: ```{user_input}```
 Extract the following information:
 
 type_of_request: The type of request that the client is making making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>
-location: A list of all potential locations that the client is interested in. If this information is not found, output [-1] as a list with just 1 element.
-requested_date: A list of all relative date expressions that the client is interested in. Copy the exact text as provided by the client without making any additional inferences. If this information is not found, output [-1] as a list with just 1 element.
+location: A list of all potential locations that the client is interested in. If this information is not found, output [-1,-1].
+requested_date: A list of all relative date expressions that the client is interested in. Copy the exact text as provided by the client without making any additional inferences. If this information is not found, output [-1,-1].
 
 {format_instructions}
     """
@@ -443,6 +443,7 @@ requested_date: A list of all relative date expressions that the client is inter
     response = llm(messages) 
     output = parser.parse(response.content)
 
+    print(output)
     return output
 
 
