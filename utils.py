@@ -7,6 +7,7 @@ from dateutil import parser as date_parser
 import calendar
 from math import radians, cos, sin, asin, sqrt
 import time
+import json
 
 from google.oauth2 import service_account
 
@@ -17,10 +18,14 @@ from langchain import PromptTemplate
 from langchain.prompts import ChatPromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.output_parsers import PydanticOutputParser
-from langchain.chains import ConversationChain
+from langchain.chains import ConversationChain, LLMChain
+
 from pydantic import BaseModel, Field
 from typing import List
 
+
+
+## Streamlit related functions ##
 def get_custom_css_modifier():
     css_modifier = """
 <style>
@@ -36,145 +41,76 @@ footer {
     """
     return css_modifier
 
+## LLM related functions ##
+#@st.cache_resource 
 def get_llm_api_config_details():
-    '''
-    config = {
-        'api_type' : st.secrets['api_type'],
-        'api_base' : st.secrets['api_base'],
-        'api_version' : st.secrets['api_version'],
-        'api_key' : st.secrets['api_key']
-    }
-    
-    return config
-    
-    '''
-    google_api_cred = service_account.Credentials.from_service_account_info(
-        info={
-            "type": st.secrets['type'] ,
-            "project_id": st.secrets['project_id'] ,
-            "private_key_id": st.secrets['private_key_id'] ,
-            "private_key": st.secrets['private_key'] ,
-            "client_email": st.secrets['client_email'] ,
-            "client_id": st.secrets['client_id'] ,
-            "auth_uri": st.secrets['auth_uri'] ,
-            "token_uri": st.secrets['token_uri'] ,
-            "auth_provider_x509_cert_url": st.secrets['auth_provider_x509_cert_url'] ,
-            "client_x509_cert_url": st.secrets['client_x509_cert_url'] ,
-            "universe_domain": st.secrets['universe_domain'] 
-        },
-    )
+    llm_choice = st.session_state.llm_choice
 
-    return google_api_cred
-    
+    if llm_choice == 'OpenAI':
 
-@st.cache_resource 
+        config = {
+            'api_type' : st.secrets['api_type'],
+            'api_base' : st.secrets['api_base'],
+            'api_version' : st.secrets['api_version'],
+            'api_key' : st.secrets['api_key']
+        }
+        
+        return config
+    
+    else:
+        google_api_cred = service_account.Credentials.from_service_account_info(
+            info={
+                "type": st.secrets['type'] ,
+                "project_id": st.secrets['project_id'] ,
+                "private_key_id": st.secrets['private_key_id'] ,
+                "private_key": st.secrets['private_key'] ,
+                "client_email": st.secrets['client_email'] ,
+                "client_id": st.secrets['client_id'] ,
+                "auth_uri": st.secrets['auth_uri'] ,
+                "token_uri": st.secrets['token_uri'] ,
+                "auth_provider_x509_cert_url": st.secrets['auth_provider_x509_cert_url'] ,
+                "client_x509_cert_url": st.secrets['client_x509_cert_url'] ,
+                "universe_domain": st.secrets['universe_domain'] 
+            },
+        )
+
+        return google_api_cred
+    
+#@st.cache_resource 
 def get_llm_instance(model='gpt-4'):   
+    llm_choice = st.session_state.llm_choice
 
-    '''
-    #model = 'gpt-4' | 'gpt-4-32k' | 'gpt-35-turbo'
-    config = get_llm_api_config_details()
-    llm = AzureChatOpenAI(
-        deployment_name=model, 
-        model_name=model, 
-        openai_api_key = config['api_key'],
-        temperature=0, 
-        max_tokens=500,
-        n=1, 
-        openai_api_base = config['api_base'],
-        openai_api_version = config['api_version'],
-    )
-    '''
-    config = get_llm_api_config_details()
+    if llm_choice == 'OpenAI':
+        #model = 'gpt-4' | 'gpt-4-32k' | 'gpt-35-turbo'
+        config = get_llm_api_config_details()
+        llm = AzureChatOpenAI(
+            deployment_name=model, 
+            model_name=model, 
+            openai_api_key = config['api_key'],
+            temperature=0, 
+            max_tokens=5000,
+            n=1, 
+            openai_api_base = config['api_base'],
+            openai_api_version = config['api_version'],
+        )
 
-    llm = ChatVertexAI(
-        model_name="chat-bison@001",
-        max_output_tokens=1024,
-        temperature=0,
-        top_p=0.8,
-        top_k=40,
-        verbose=True,
-        credentials = config,
-        project=config.project_id
-    )
-    
+    else:
+        config = get_llm_api_config_details()
+
+        llm = ChatVertexAI(
+            model_name="chat-bison",
+            max_output_tokens=1024,
+            temperature=0,
+            top_p=0.8,
+            top_k=40,
+            verbose=True,
+            credentials = config,
+            project=config.project_id
+        )
+
     return llm
 
-## Date formatter
-def todayDate():
-    today = datetime.now()
-    return today.strftime('%d/%m/%Y')
-
-# get day of week for a date (or 'today')
-def dayOfWeek(date):
-    today = datetime.now()
-    if date == 'today':
-        return calendar.day_name[today.weekday()]
-    else:
-        try:
-            theDate = parser.parse(date)
-        except:
-            return 'invalid date format, please use format: dd/mm/yyyy'
-
-        return calendar.day_name[theDate.weekday()]
-
-def get_calendar_reference():
-    # Get today's date
-    today = datetime.now().date()
-
-    # Initialize the output string
-    output = ""
-
-    # Generate and append day of the week and date for the next 28 days
-    for day in range(16):
-        current_date = today + timedelta(days=day)
-        day_of_week = current_date.strftime('%A')
-        date_formatted = current_date.strftime('%d/%m/%Y')
-        if current_date == today:
-            date_formatted = f"{date_formatted} [TODAY]"
-        output += f'- {day_of_week} {date_formatted}\n'
-
-    return output
-
-
-def get_interested_dates(date_str):
-    class InterestedDates(BaseModel):
-        interested_dates: List[str] = Field(description='a list of dates in dd/mm/yyyy format that the client could be interested in when booking the facility. If this information is not found, output ["none"].')
-
-    parser = PydanticOutputParser(pydantic_object=InterestedDates)
-    format_instructions = parser.get_format_instructions()
-
-    template = """
-The calendar for the next 15 days are as deliminted by triple backticks:
-```
-{calendar_ref}
-```
-
-Today's date is {today_day_of_week} {today_date_str}.
-Identify the closest date or dates `{date_str}` could be referring to from the calendar above in dd/mm/yyyy format. 
-If there are no valid dates in the calendar above or if the date doesn't exist, do not make up an answer and just output ["none"].
-{format_instructions}
-    """
-    prompt = ChatPromptTemplate.from_template(
-        template=template, 
-    )
-
-    messages=prompt.format_messages(
-        today_day_of_week = dayOfWeek('today'),
-        today_date_str = todayDate(),
-        calendar_ref = get_calendar_reference(),
-        date_str = date_str,
-        format_instructions = format_instructions
-    )
-
-    llm = get_llm_instance()
-
-    response = llm(messages)
-    output = parser.parse(response.content)
-
-    return output
-
-
-## Get nearby facilities
+## Get Simulated data functions ##
 def getcoordinates(address):
     req = requests.get('https://developers.onemap.sg/commonapi/search?searchVal='+address+'&returnGeom=Y&getAddrDetails=Y&pageNum=1')
     resultsdict = eval(req.text)
@@ -183,13 +119,15 @@ def getcoordinates(address):
     else:
         pass
 
-
-@st.cache_resource
+@st.cache_data
 def get_facility_outlets():
     get_facility_outlets_url = 'https://www.onepa.gov.sg/pacesapi/FacilitySearch/GetFacilityOutlets'
 
-    response = requests.get(get_facility_outlets_url)
-    json_data = response.json()
+    try:
+        response = requests.get(get_facility_outlets_url)
+        json_data = response.json()
+    except Exception as e:
+        json_data = json.load(open('getFacilityOutlets.json','r'))
 
     tmp_df = json_normalize(
         pd.DataFrame(
@@ -214,10 +152,137 @@ def get_facility_outlets():
     facility_id_df = pd.concat([
         tmp_df[['label','lat','lng']],
         json_normalize(tmp_df['productList']),
-    ], axis=1)
+    ], axis=1).drop_duplicates()
 
     return facility_id_df
 
+@st.cache_data 
+def get_simulated_data():
+    df = pd.read_csv('facility_availability_2023_08_23.csv')
+    df['date'] = pd.to_datetime(df['date'], format='%d/%m/%Y').dt.date
+    df['price'] = df['price'].round(2)
+    facility_outlet_df = get_facility_outlets()
+    df = df.merge(facility_outlet_df, left_on='facility_id', right_on='id', how='left')
+    df = df.rename(columns={'value': 'facility_type'})
+    df = df.query("facility_type == 'BADMINTON COURTS'") #only focus on badminton courts for now
+    
+    #df['booking_url'] = df.apply(lambda x: generate_pa_facility_booking_link(x['facility_id'], x['date']), axis=1)
+    return df
+
+
+## Date formatter functions ##
+def todayDate():
+    today = datetime.now()
+    return today.strftime('%d/%m/%Y')
+
+# get day of week for a date (or 'today')
+def dayOfWeek(date):
+    today = datetime.now()
+    if date == 'today':
+        return calendar.day_name[today.weekday()]
+    else:
+        try:
+            theDate = date_parser.parse(date)
+        except:
+            return 'invalid date format, please use format: dd/mm/yyyy'
+
+        return calendar.day_name[theDate.weekday()]
+
+def get_calendar_reference(today_str = None):
+    
+    if today_str:
+        today = date_parser.parse(today_str, dayfirst=True)
+    else:
+        # Get today's date
+        today = datetime.now().date()
+
+    # Initialize the output string
+    output = ""
+
+    # Generate and append day of the week and date for the next 16 days
+    for day in range(16):
+        current_date = today + timedelta(days=day)
+        day_of_week = current_date.strftime('%A')
+        date_formatted = current_date.strftime('%d/%m/%Y')
+        if current_date == today:
+            date_formatted = f"{date_formatted} [TODAY]"
+        output += f'- {day_of_week} {date_formatted}\n'
+
+    return output
+
+def get_valid_dates(today_str = None):
+    if today_str:
+        today = date_parser.parse(today_str, dayfirst=True)
+    else:
+        # Get today's date
+        today = datetime.now().date()
+
+    output = []
+
+    # Generate and append day of the week and date for the next 16 days
+    for day in range(16):
+        current_date = today + timedelta(days=day)
+        day_of_week = current_date.strftime('%A')
+        date_formatted = current_date.strftime('%d/%m/%Y')
+        output.append(date_formatted)
+
+    return output
+
+def get_interested_dates(date_str, is_simulation_mode = False):
+    class InterestedDates(BaseModel):
+        interested_dates: List[str] = Field(description='a list of dates in dd/mm/yyyy format that the client could be interested in when booking the facility. If this information is not found, output ["none"].')
+
+    parser = PydanticOutputParser(pydantic_object=InterestedDates)
+    format_instructions = parser.get_format_instructions()
+
+    template = """
+The calendar for the next 15 days are as deliminted by triple backticks:
+```
+{calendar_ref}
+```
+
+Today's date is {today_day_of_week} {today_date_str}.
+Identify the closest date or dates `{date_str}` could be referring to from the calendar above in dd/mm/yyyy format. 
+If there are no valid dates in the calendar above or if the date doesn't exist, do not make up an answer and just output ["none"].
+{format_instructions}
+    """
+    prompt = ChatPromptTemplate.from_template(
+        template=template, 
+    )
+
+    if is_simulation_mode:
+        df = get_simulated_data()
+        simulated_date_range = sorted(df.date.unique())
+
+        today_date_str = str(min(simulated_date_range))
+        today_day_of_week = dayOfWeek(today_date_str)
+        calendar_ref = get_calendar_reference(today_date_str)
+        valid_dates_list = get_valid_dates(today_date_str)
+
+    else:
+        today_date_str = todayDate()
+        today_day_of_week = dayOfWeek('today')
+        calendar_ref = get_calendar_reference()
+        valid_dates_list = get_valid_dates()
+
+    messages=prompt.format_messages(
+        today_day_of_week = today_date_str,
+        today_date_str = today_day_of_week,
+        calendar_ref = calendar_ref,
+        date_str = date_str,
+        format_instructions = format_instructions
+    )
+
+    llm = get_llm_instance()
+
+    response = llm(messages)
+    output = parser.parse(response.content)
+    output.interested_dates = [d for d in output.interested_dates if d in valid_dates_list]
+
+    return output
+
+
+## Get nearby facilities functions ##
 def haversine(lat1, lon1, lat2, lon2):
     """
     Calculate the great circle distance in kilometers between two points 
@@ -235,7 +300,7 @@ def haversine(lat1, lon1, lat2, lon2):
     return c * r
 
 
-def get_nearby_facilities(user_interested_location):
+def get_nearby_facilities(user_interested_location, facility_type = 'BADMINTON COURTS'):
     '''
     1. geocode location
     2. filter "value" to facility of choice
@@ -254,7 +319,7 @@ def get_nearby_facilities(user_interested_location):
             axis=1
         )
 
-        sorted_df = facility_id_df[facility_id_df['value'] == 'BADMINTON COURTS'].sort_values('dist_from_user')
+        sorted_df = facility_id_df[facility_id_df['value'] == facility_type].sort_values('dist_from_user')
         for index, row in sorted_df.iterrows():
             nearest_id_set.add(row.id)
             if len(nearest_id_set) >=3:
@@ -264,8 +329,523 @@ def get_nearby_facilities(user_interested_location):
     return nearest_id_set
 
 
+## Parsing user input functions ##
+def understand_user_intent(user_input_str, chat_history):
+    class UserInput(BaseModel):
+        type_of_request: str = Field(description='the type of request that the client is making based on the latest message. This will be one of the following values: conversational_message, request_question')
+        crux_message: str = Field(description="A summary sentence of the human's request from the AI's perspective.")
+            
+    parser = PydanticOutputParser(pydantic_object=UserInput)
+    format_instructions = parser.get_format_instructions()
+    
+    template = """
+You are reviewing a conversation between a Badminton Court booking assistant and a human. 
+Your objective is to analyze the chat history and the latest human input to infer the ultimate request the human is seeking.
+Give more importance to the latest human input in your analysis, and use the chat history to understand the user's final intent.
+
+```
+{chat_history}
+```
+Latest human input: ```{user_input}```
+
+Extract the following information in JSON format:
+
+<type_of_request>: The type of request that the client is making making based on the latest message. This will be one of the following values:
+- conversational_message. For example: Hi. Thank you! How are you? Bye bye. Happy birthday to you!
+- request_question. For example: What can you do? Is there a badminton court available? What about next week? I'm looking for a badminton court. Yes please. Go ahead. 
+
+<crux_message>: A summary sentence of the human's request from the AI's perspective, based on the latest human input and the chat history.
+
+{format_instructions}
+    """
+    
+    prompt = ChatPromptTemplate.from_template(
+        template=template,
+    )
+    
+    messages = prompt.format_messages(
+        format_instructions=format_instructions,
+        chat_history=chat_history,
+        user_input=user_input_str
+    )
+    
+    llm = get_llm_instance()
+
+    response = llm(messages) 
+    output = parser.parse(response.content)
+
+    return output
+
+
+def extract_search_parameters(user_input):
+    class SearchParameters(BaseModel):
+        locations: List[str] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output ["none"].')
+        dates: List[str] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output ["none"].')
+        #timings: List[str] = Field(description='a list of all relative timing expressions that the client might be interested in when booking the facility. If this information is not found, output ["none"].')
+        #facility_type: List[str] = Field(description="a list of all facility types that the client might be interested in when booking. The only values allowed here are: 'BADMINTON COURTS', 'BBQ PIT', 'TABLE TENNIS ROOM','FUTSAL COURT', 'TENNIS COURT', 'BASKETBALL COURT','SEPAK TAKRAW COURT'. If this information is not found, output ['none'].")
+            
+    parser = PydanticOutputParser(pydantic_object=SearchParameters)
+    format_instructions = parser.get_format_instructions()
+    
+    
+    template = """
+Extract the following information from <Human request> in JSON format. If the information is not found, just output ["none"]:
+<locations>: List out all locations that are mentioned in the human's request. For example: Hougang, Queenstown, Tampines, Serangoon, Bedok, East Coast Park, Marine Parade
+<dates>: List out all relative date references that are mentioned in human's request. For example: next week, this weekend, Tuesday, Fridays, 2023-08-15, 15th Aug, Sept 23, today, tomorrow, between Aug 1 and Aug 10, 1st Aug to 10th Aug, 2023-08-01 to 2023-08-10
+
+<Human request>: ```{user_input}```
+
+{format_instructions}
+    """
+    
+    #<timings>: For example - 12pm, noon, 7.30, 1930, afternoon, evening
+    #<facility_type>: The only values allowed here are: 'BADMINTON COURTS', 'BBQ PIT', 'TABLE TENNIS ROOM','FUTSAL COURT', 'TENNIS COURT', 'BASKETBALL COURT','SEPAK TAKRAW COURT'
+
+    prompt = ChatPromptTemplate.from_template(
+        template=template,
+    )
+    
+    messages = prompt.format_messages(
+        format_instructions=format_instructions,
+        user_input=user_input
+    )
+    
+    llm = get_llm_instance()
+    
+    response = llm(messages) 
+    output = parser.parse(response.content)
+
+    return output
+
+
+## Get availability details ##
+
+def get_availability_details(location_list = [], date_list = []):
+    date_query = None
+    facility_query = None
+    combined_query = None
+    df = get_simulated_data()
+    df['date'] = pd.to_datetime(df['date']).dt.strftime('%d/%m/%Y')
+    
+    if len(date_list) > 0:
+        date_query = ' | '.join([f"date == '{date}'" for date in date_list])
+    if len(location_list) > 0:
+        facility_query = ' | '.join([f"facility_id == '{facility_id}'" for facility_id in location_list])
+    
+    if date_query and facility_query:
+        combined_query = f"({date_query}) and ({facility_query})"
+    elif date_query:
+        combined_query = f"({date_query})"
+    elif facility_query:
+        combined_query = f"({facility_query})"
+
+    if combined_query:
+        filtered_df = df.query(combined_query)
+    else:
+        filtered_df = df
+    
+    def pivot_agg_func(x):
+        unique_values = set(x)
+        unique_values = sorted(list(unique_values))
+        return ', '.join(str(val) for val in unique_values)
+
+    pivot_df = filtered_df.pivot_table(
+        index='booking_url',
+        values=['outlet_name','facility_type','date','resourceName','timeRangeName','price'],
+        aggfunc=pivot_agg_func
+    ).reset_index(drop=False)
+
+    return pivot_df
+
+
+## Format availibility output ##
+def format_availibility_output(availability_list):
+
+    template = '''
+Compile the following details must be in point form for easier reading, with all the details (booking_url, date, all time ranges, facility type, Outlet Name, Resource Name). The booking URL is the most important detail!
+Combine repeated information into just 1 bullet point. Merge neighbouring timings together (e.g. 1pm-2pm and 2pm-3pm should just be 1pm-3pm).
+
+```START EXAMPLE FORMAT```
+- <Outlet Name>
+    - <date_1>
+        - <booking_url>
+        - <time_range_1>, <time_range_2>, <time_range_3>
+    - <date_2>
+        - <booking_url>
+        - <time_range_1>, <time_range_2>, <time_range_3>
+- <Outlet Name>
+    - <date_1>
+        - <booking_url>
+        - <time_range_1>, <time_range_2>, <time_range_3>
+    - <date_2>
+        - <booking_url>
+        - <time_range_1>, <time_range_2>, <time_range_3>
+```END EXAMPLE FORMAT```
+
+```START DETAILS TO BE FORMATTED```
+{availability_list}
+```END DETAILS TO BE FORMATTED```
+
+Formated details: 
+    '''
+    prompt = ChatPromptTemplate.from_template(template=template)
+    messages = prompt.format_messages(
+        availability_list=availability_list, 
+    )
+    llm = get_llm_instance()
+    response = llm(messages) 
+
+    return response.content
+
+## Give user response ##
+def rephrase_user_request(crux_message):
+    template = """
+Repeat the human's request as a Badminton Court Booking Assistant to demonstrate active listening and engagement (For example - "I've noted that you are asking for...", "Got it, you're interested in...", "I'm here to help you..."):
+<human's request>: {user_request}
+    """
+    
+    prompt = ChatPromptTemplate.from_template(
+        template=template,
+    )
+    
+    messages = prompt.format_messages(
+        user_request=crux_message
+    )
+    
+    llm = get_llm_instance()
+    
+    response = llm(messages) 
+
+    return response.content
+
+def get_available_slots_bot_response(user_request, rephrase_user_request, available_slots, search_param):
+    
+    system_template = """
+You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
+
+<HUMAN REQUEST>: {input}
+
+``` START DRAFT SCRATCHPAD ```
+Availability: {available_slots}
+Note: 
+- I will start my message with "{rephrase_user_request}"
+- I will explain that I did my search based on "{search_param}"
+- I must provide all details above, especially the the booking URL link(s) for the human to do their booking via the website!
+``` END DRAFT SCRATCHPAD ```
+
+Response:
+"""
+    prompt = ChatPromptTemplate.from_template(
+        template=system_template,
+    )
+
+    chain = LLMChain(llm=get_llm_instance(), prompt=prompt, verbose=True)
+    
+    response = chain.run(
+        input = user_request,
+        rephrase_user_request = rephrase_user_request,
+        available_slots = available_slots,
+        search_param = search_param,
+    )
+
+    return response
+
+def construct_chat_history(session_state_chat_history):
+    #chat_history = ''
+    chat_history_buffer = ConversationBufferMemory(input_key='input')
+
+    #Might want to consider saving only the last k messages, to keep buffer short.
+
+    #skip the first intro greeting line by the ai assistant
+    for line in session_state_chat_history[1:]:
+        if line['role'] == 'user':
+            #chat_history = chat_history + f"<Human>: {line['content']}\n"
+            chat_history_buffer.chat_memory.add_user_message(line['content'])
+        if line['role'] == 'assistant':
+            #chat_history = chat_history + f"<Assistant>: {line['content']}\n"
+            chat_history_buffer.chat_memory.add_ai_message(line['content'])
+
+    return chat_history_buffer
+
+
+def get_conversational_response(session_state_chat_history,user_msg,tentative_response):
+    chat_history = construct_chat_history(session_state_chat_history)
+    system_template = """
+The following is a friendly conversation between a human and an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
+The assistant's main objective is to aid clients in securing their desired Badminton Courts by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking Badminton Courts.
+
+Current conversation:
+```
+{history}
+Human: {input}
+```
+
+Your tentative response as follows. Create a reply that is consistent with the ongoing conversation in the human's original language.
+
+``` START TENTATIVE RESPONSE SCRATCHPAD ```
+{tentative_response}
+``` END TENTATIVE RESPONSE SCRATCHPAD ```
+
+Response: 
+
+"""
+    conversation = ConversationChain(llm = get_llm_instance(), memory=chat_history, verbose=True)
+    conversation.prompt = PromptTemplate.from_template(system_template)
+
+    response = conversation.predict(
+        input = user_msg,
+        tentative_response=tentative_response,
+    )
+
+    return response
+
+def respond_to_conversational_message(chat_history, conversational_msg):
+    system_template = """
+The following is a friendly conversation between a human and an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
+The assistant's main objective is to aid clients in securing their desired Badminton Courts by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking Badminton Courts.
+In response to the ongoing conversation, reply with a friendly tone as it appears the human is engaging in conversation.
+
+Current conversation:
+{history}
+Human: {input}
+AI:
+"""
+    conversation = ConversationChain(llm = get_llm_instance(), memory=chat_history, verbose=True)
+    conversation.prompt = PromptTemplate.from_template(system_template)
+
+    response = conversation.predict(
+        input = conversational_msg,
+    )
+
+    return response
+
+def respond_to_get_more_info(user_msg, search_param, is_simulation_mode=True):
+
+    missing_info_prompt = ''
+
+    if 'none' in search_param.dates or len(search_param.dates) == 0:
+        if is_simulation_mode:
+            df = get_simulated_data()
+            simulated_date_range = sorted(df.date.unique())
+
+            min_date_range = min(simulated_date_range)
+            max_date_range = max(simulated_date_range)
+
+        else:
+            min_date_range = datetime.now().date()
+            max_date_range = datetime.now().date() + timedelta(days=16)
+
+        missing_info_prompt =  missing_info_prompt + f"- I do not know the date the Human is interested in. The date has to be between {min_date_range} and {max_date_range}.\n"
+
+    if 'none' in search_param.locations or len(search_param.locations) == 0:
+        missing_info_prompt = missing_info_prompt + "- I do not know where the Human is interested in, or the location given by the Human might be too general. The location will need to be somewhere in Singapore.\n"
+
+    system_template = """
+You are an AI Badminton Court booking assistant chatbot, but you are in need of more details from the human. The assistant always replies in a happy and friendly tone.
+The assistant's main objective is to aid clients in securing their desired Badminton Courts by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client book Badminton Courts.
+
+<HUMAN REQUEST>: {input}
+
+``` START DRAFT SCRATCHPAD ```
+- I will start my response by stating the details that I already know. The details gathered so far:
+    - Location: {location}
+    - Dates: {dates}
+- I will ask the human for the missing information:
+    {missing_info_prompt}
+- End my message with an example for the human to follow: "For example: I am looking to book a badminton court in <location> on <date>"
+``` END DRAFT SCRATCHPAD ```
+
+Response:
+"""
+    prompt = ChatPromptTemplate.from_template(
+        template=system_template,
+    )
+
+    chain = LLMChain(llm=get_llm_instance(), prompt=prompt, verbose=True)
+
+    response = chain.run(
+        search_param = search_param,
+        input = user_msg,
+        location = search_param.locations,
+        dates = search_param.dates,
+        missing_info_prompt=missing_info_prompt,
+    )
+
+    return response
+
+def respond_no_results_found(user_request, rephrase_user_request, search_param):
+    system_template = '''
+You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
+
+<HUMAN REQUEST>: {input}
+
+``` START DRAFT SCRATCHPAD ```
+Note: There are no available timings for {locations} on {dates}'
+- I will start my message with "{rephrase_user_request}"
+- Then, I will list the location and ate options I have looked into.
+- Then, I'll inform the user that there are no available schedules or timings.
+- Recommend alternative dates or locations to the user as search parameters, and ask if they'd like to explore these suggested options.
+``` END DRAFT SCRATCHPAD ```
+
+Response:
+    '''
+    prompt = ChatPromptTemplate.from_template(
+        template=system_template,
+    )
+
+    chain = LLMChain(llm=get_llm_instance(), prompt=prompt, verbose=True)
+
+    response = chain.run(
+        input = user_request,
+        locations = search_param.locations,
+        dates = search_param.dates,
+        rephrase_user_request = rephrase_user_request
+    )
+
+    return response
+
+
+def respond_too_many_results_found(user_request, rephrase_user_request, result_df):
+    system_template = '''
+You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
+
+<HUMAN REQUEST>: {input}
+
+``` START DRAFT SCRATCHPAD ```
+Note: There are {result_count} options across `{location_list}` during these dates `{date_list}`. This is too many to list out.
+- I will start my message with "{rephrase_user_request}"
+- Then, I will inform the human that there's an abundance of options. I will ask the user for more details like dates and locations to narrow down the options.
+``` END DRAFT SCRATCHPAD ```
+
+Response:
+    '''
+    prompt = ChatPromptTemplate.from_template(
+        template=system_template,
+    )
+
+    chain = LLMChain(llm=get_llm_instance(), prompt=prompt, verbose=True)
+
+    response = chain.run(
+        input = user_request,
+        result_count = len(result_df),
+        location_list = result_df['outlet_name'].unique(),
+        date_list = result_df['date'].unique(),
+        rephrase_user_request = rephrase_user_request
+    )
+
+    return response
+
+def respond_to_user_input(user_input, session_state_chat_history, is_simulation_mode = True):
+    st.session_state.result_df = ''
+    st.chat_message("assistant").write(f'Thinking...')
+    chat_history = construct_chat_history(session_state_chat_history)
+
+    #Step 1: Understand the user's message
+    parsed_user_intent = understand_user_intent(user_input, chat_history.buffer)
+
+    print(parsed_user_intent)
+
+    if parsed_user_intent.type_of_request == 'conversational_message':
+        return respond_to_conversational_message(chat_history, user_input)
+
+    #Step 2: extract search parameters
+    search_param = extract_search_parameters(parsed_user_intent.crux_message)
+
+    print(search_param)
+
+    cleaned_dates = []
+    for d in search_param.dates:
+        if d == 'none':
+            continue
+        interested_dates = get_interested_dates(d,is_simulation_mode)
+        cleaned_dates.extend(interested_dates.interested_dates)
+    
+    cleaned_dates = sorted(list(set(cleaned_dates)))
+    
+    cleaned_locations = []
+    for l in search_param.locations:
+        if l == 'none':
+            continue
+        cleaned_locations.extend(list(get_nearby_facilities(l)))
+    
+    cleaned_locations = sorted(list(set(cleaned_locations)))
+
+    search_param.dates = cleaned_dates
+    search_param.locations = cleaned_locations
+
+    print(search_param)
+
+    if 'none' in search_param.locations or 'none' in search_param.dates or len(search_param.dates) == 0 or len(search_param.locations) == 0:
+        return respond_to_get_more_info(parsed_user_intent.crux_message, search_param, is_simulation_mode)
+
+    #Step 3: perform search
+    st.chat_message("assistant").write(f'Fetching results...')
+    formated_result_list = ''
+
+    if is_simulation_mode:
+        result_df = get_availability_details(location_list = search_param.locations, date_list = search_param.dates)
+
+        if len(result_df) == 0:
+            response = respond_no_results_found(
+                parsed_user_intent.crux_message, 
+                rephrase_user_request(parsed_user_intent.crux_message),
+                search_param
+            )
+
+            return response
+
+        elif len(result_df) > 15:
+            response = respond_too_many_results_found(
+                parsed_user_intent.crux_message, 
+                rephrase_user_request(parsed_user_intent.crux_message),
+                result_df
+            )
+
+            return response
+        else:
+            formated_result_list = format_availibility_output(
+                json.dumps(
+                    json.loads(
+                        result_df.to_json(orient='records')
+                    ),
+                    indent=2
+                )
+            )
+
+        st.session_state.result_df = result_df
+
+    else:
+        if len(search_param.dates) > 1:
+            st.chat_message("assistant").write(f"I noticed that you are asking for several dates. Due to an API limit, I will only search for the first date, {search_param.dates[:1]}")
+            search_param.dates = search_param.dates[:1]
+
+        if len(search_param.locations) > 3:
+            st.chat_message("assistant").write(f"I noticed that you are asking for several different areas. Due to an API limit, I will only search for the first 3 locations, {search_param.locations[:3]}")
+            search_param.locations = search_param.locations[:3]
+
+        for fid in search_param.locations:
+            for input_date in search_param.dates:
+                result = get_facility_availability(fid, input_date)
+
+                formated_result_list += f'\n Current availability for {fid} on {input_date}: \n'
+                formated_result_list += result + ' \n'
+
+
+    #Step 4: Give a response 
+    response = get_available_slots_bot_response(
+        parsed_user_intent.crux_message, 
+        rephrase_user_request(parsed_user_intent.crux_message),
+        formated_result_list,
+        search_param
+    )
+
+    return response
+
+
+#### Live methods here ####
+
 ## Get availability slots
-def attempt_request_get(url, max_attempts=5, wait_delay=45):
+def attempt_request_get(url, max_attempts=5, wait_delay=10):
     attempts = 0
     while attempts < max_attempts:
         try:
@@ -273,10 +853,10 @@ def attempt_request_get(url, max_attempts=5, wait_delay=45):
             response_data = response.json()
         except Exception as e:
             print("An error occurred:", str(e))
-            st.chat_message("assistant").write(f'Oops, got rate limited by the API, will need to wait {wait_delay} seconds...')
             attempts += 1
             print(f"Trying again... Attempt {attempts}")
-            time.sleep(wait_delay)  # Add a delay before retrying
+            st.chat_message("assistant").write(f'Oops, got rate limited by the API, will need to wait {attempts * wait_delay} seconds...')
+            time.sleep(attempts * wait_delay)  # Add a delay before retrying
         else:
             break
     else:
@@ -305,23 +885,6 @@ def get_facility_slots(f_id, date_str):
 
 def generate_pa_facility_booking_link(fid, date_str):
     return f'https://www.onepa.gov.sg/facilities/availability?facilityId={fid}&date={date_str}&time=all'
-
-def format_availibility_from_list_to_string(availability_list):
-    template = '''
-Summarize and format the following information in bullet points. Combine repeated information into just 1 bullet point.
-Be sure to preserve the booking_url, outlet_name, timeRangeName and date fields:
-```
-{availability_list}
-```
-    '''
-    prompt = ChatPromptTemplate.from_template(template=template)
-    messages = prompt.format_messages(
-        availability_list=availability_list, 
-    )
-    llm = get_llm_instance()
-    response = llm(messages) 
-    
-    return response.content
 
 def get_facility_availability(facility_id, date_str):
     try:
@@ -376,7 +939,7 @@ def get_facility_availability(facility_id, date_str):
                     #'endTime': endTime,
                     #'availabilityStatus': availability_status,
                     #'isAvailable': is_available,
-                    'price': max_price,
+                    'price': f'{max_price:.2f}',
                     'booking_url': generate_pa_facility_booking_link(facility_id, date_str)
                 }
                 formatted_list.append(formatted_slot)
@@ -384,193 +947,10 @@ def get_facility_availability(facility_id, date_str):
     if len(formatted_list) == 0:
         return "no available timings"
     else:
-        return format_availibility_from_list_to_string(formatted_list)
-
-
-## Parse user input
-def parse_user_input(user_input, session_state_chat_history):
-    
-    chat_history = ''
-    
-    #skip the first intro greeting line by the ai assistant
-    for line in session_state_chat_history[1:]:
-        if line['role'] == 'user':
-            chat_history = chat_history + f"<Human>: {line['content']}\n"
-        if line['role'] == 'assistant':
-            chat_history = chat_history + f"<Assistant>: {line['content']}\n"
-    
-    class UserInput(BaseModel):
-        type_of_request: str = Field(description='the type of request that the client is making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>')
-        interested_locations: List[str] = Field(description='a list of all locations that the client might be interested in when booking the facility. If this information is not found, output ["none"]')
-        interested_dates: List[str] = Field(description='a list of all relative date expressions that the client might be interested in when booking the facility. If this information is not found, output ["none"]')
-    
-    parser = PydanticOutputParser(pydantic_object=UserInput)
-    format_instructions = parser.get_format_instructions()
-    
-    template = """
-You are reviewing a conversation between a facility booking conceirge and a human. 
-Your objective is to analyze the chat history and the latest human input to infer the ultimate request the human is seeking.
-Give more importance to the latest human input in your analysis. If information is unavailable, use the chat history to understand the user's intent.
-The end goal is to have this output be passed onto the facility booking conceirge so they will know what to process.
-
-Previous conversation:
-```
-{chat_history}
-```
-Latest human input: ```{user_input}```
-
-Extract the following information:
-
-type_of_request: The type of request that the client is making making based on the latest message. This will be one of the following values: <request_question>, <conversational_message>
-location: A list of all potential locations that the client is interested in. If this information is not found, output ["none"].
-requested_date: A list of all relative date expressions that the client is interested in. Copy the exact text as provided by the client without making any additional inferences. If this information is not found, output ["none"].
-
-{format_instructions}
-    """
-
-    prompt = ChatPromptTemplate.from_template(
-        template=template,
-    )
-    
-    messages = prompt.format_messages(
-        format_instructions=format_instructions,
-        chat_history=chat_history,
-        user_input=user_input
-    )
-    
-    llm = get_llm_instance()
-    
-    response = llm(messages) 
-    output = parser.parse(response.content)
-
-    print(output)
-    return output
-
-
-## Respond to user's input
-
-## NOTES: based on test, the convo history seems to be confusing the LLM (Vertex is impacted by this, openai doesn't have this problem). Maybe remove convo history? Then maybe don't need to use conversationchain and just use regular LLMchain?
-def respond_to_user_input(user_input_str, session_state_chat_history):
-    available_slots_str = ''
-    chat_history = ConversationBufferMemory(input_key='input')
-
-    #Might want to consider only saving the last k messages? So as not to make the prompt too long for longer conversations?
-    for line in session_state_chat_history[1:]:
-        if line['role'] == 'user':
-            chat_history.chat_memory.add_user_message(line['content'])
-        if line['role'] == 'assistant':
-            chat_history.chat_memory.add_ai_message(line['content'])
-
-    conversation = ConversationChain(llm = get_llm_instance(), memory=chat_history, verbose=True)
-
-
-    user_request = parse_user_input(user_input_str, session_state_chat_history)
-
-    print(user_request)
-
-    if user_request.type_of_request == 'conversational_message':
-        # it is a conversational message, just need the bot to respond properly.
-        system_template = """
-The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
-The assistant's main objective is to aid clients in securing their desired facilities by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking facilities.
-
-Current conversation:
-{history}
-Human: {input}
-AI:
-"""
-
-    elif "none" in user_request.interested_dates:
-        # it is a request, but either the date or location is missing, will need to prompt users to get that info
-        system_template = """
-The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
-The assistant's main objective is to aid clients in securing their desired facilities by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking facilities.
-From the ongoing conversation, it seems the human has not shared details about the date they are interested in. The assistant will prompt them in a friendly manner to ask about their interested date.
-
-Current conversation:
-{history}
-Human: {input}
-AI:
-"""
-
-    elif "none" in user_request.interested_locations:
-        # it is a request, but either the date or location is missing, will need to prompt users to get that info
-        system_template = """
-The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
-The assistant's main objective is to aid clients in securing their desired facilities by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking facilities.
-From the ongoing conversation, it seems the human has not shared details about the location they are interested in. The assistant will prompt them in a friendly manner to ask where in Singapore they will be interested in.
-
-Current conversation:
-{history}
-Human: {input}
-AI:
-"""
-
-    #elif is_simulated_mode:
-    #   Code to run simulated mode... assuming we are not limited by the API
-    #   remember to add this tick option on the chatbot UI. Or maybe execute a different method?
-    #   esp since simulated data means "today" will be different from real today
+        return format_availibility_output(json.dumps(json.loads(str(formatted_list).replace("'",'"')),indent=2))
+        #return format_availibility_output(formatted_list)
 
 
 
-
-    else:
-        # regular user request parsing
-
-        #Begin fetching results
-        st.chat_message("assistant").write("Fetching results...")
-        cleaned_interested_dates = []
-
-        for input_date in user_request.interested_dates:
-            cleaned_dates = get_interested_dates(input_date)
-            cleaned_interested_dates.extend([date_parser.parse(i, dayfirst=True).strftime('%d/%m/%Y') for i in cleaned_dates.interested_dates if i != "none"])
-
-        user_request.interested_dates = sorted(list(set(cleaned_interested_dates)))
-        print(f'after cleaning dates: {user_request}')
-
-        if len(user_request.interested_dates) > 2:
-            st.chat_message("assistant").write(f"I noticed that you are asking for more than 2 different dates. Due to an API limit, I will only search for the first 2 dates, {user_request.interested_dates[:2]}")
-
-        if len(user_request.interested_locations) > 2:
-            st.chat_message("assistant").write(f"I noticed that you are asking for more than 2 different areas. Due to an API limit, I will only search for the first 2 areas, {user_request.interested_locations[:2]}")
-
-        nearest_id_set = set()
-
-        for input_location in user_request.interested_locations[:2]:
-            nearest_id_set.update(get_nearby_facilities(input_location))
-
-        for fid in nearest_id_set:
-            for input_date in user_request.interested_dates[:2]:
-                result = get_facility_availability(fid, input_date)
-
-                #if result == 'no facility found' or result == 'no available timings':
-                #    continue
-
-                available_slots_str += f'\n Current availability for {fid} on {input_date}: \n'
-                available_slots_str += result + ' \n'
-
-
-        system_template = """
-The following is a friendly conversation between a human and an AI facility booking assistant. The assistant always replies in a happy and friendly tone.
-The assistant will respond by referring to both the user's request and the availability details provided, ensuring that it gives accurate responses and do not make up an answer.
-If there are availability options, the assistant will present all the choices listed below and give the facility and availability details for the human's information, and give the booking URL link(s) for the human to do their booking via the website. The message must be in point form for easier reading. THE URL LINK MUST ALWAYS BE INCLUDED IN YOUR RESPONSE!
-If there are no availability options, the assistant will reference the human's request and state that no options meet their request in a friendly manner.
-
-Human's request: ```{user_request}```
-
-Here are the facility availability details for options near the requested location and date: 
-```
-{available_slots}
-```
-
-"""
-
-    conversation.prompt = PromptTemplate.from_template(system_template)
-
-    response = conversation.predict(
-        available_slots = available_slots_str,
-        input = user_input_str,
-        user_request = user_request.json()
-    )
-
-    return response
+def generate_pa_facility_booking_link(fid, date_str):
+    return f'https://www.onepa.gov.sg/facilities/availability?facilityId={fid}&date={date_str}&time=all'

@@ -1,0 +1,2798 @@
+{
+    "success": true,
+    "message": "",
+    "data": {
+        "component": null,
+        "id": "faa09340372143b0beb051e507f55775",
+        "renderingUniqueId": null,
+        "data": {
+            "outlets": [
+                {
+                    "neighbourhood": "Ang Mo Kio",
+                    "ccList": [
+                        {
+                            "id": "angmokiocc",
+                            "label": "Ang Mo Kio CC",
+                            "lat": 1.3668622043,
+                            "lng": 103.8406847685,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "AngMoKioCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "AngMoKioCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kebunbarucc",
+                            "label": "Kebun Baru CC",
+                            "lat": 1.3730075016,
+                            "lng": 103.8376124213,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KebunBaruCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KebunBaruCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "teckgheecc",
+                            "label": "Teck Ghee CC",
+                            "lat": 1.363106014,
+                            "lng": 103.8535604879,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TeckGheeCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TeckGheeCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "thomsoncc",
+                            "label": "Thomson CC",
+                            "lat": 1.3585760046,
+                            "lng": 103.8455927066,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ThomsonCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ThomsonCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yiochukangcc",
+                            "label": "Yio Chu Kang CC",
+                            "lat": 1.3815172764,
+                            "lng": 103.841428115,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YioChuKangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "YioChuKangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bishannorthzone4rc",
+                            "label": "Bishan North Zone 4 RC",
+                            "lat": 1.3589868933,
+                            "lng": 103.8433244184,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BishanNorthZone4RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chengsanzonefrc",
+                            "label": "Cheng San Zone F RC",
+                            "lat": 1.3736512387,
+                            "lng": 103.8570222204,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ChengSanZoneFRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "ChengSanZoneFRC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "teckgheehorizonrn",
+                            "label": "Teck Ghee Horizon RN",
+                            "lat": 1.3640980792,
+                            "lng": 103.8566942207,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TeckGheeHorizonRN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "teckgheepalmviewrn",
+                            "label": "Teck Ghee Palm View RN",
+                            "lat": 1.3673946521,
+                            "lng": 103.8381478819,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TeckGheePalmViewRN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "thomsonshunfurc",
+                            "label": "Thomson Shunfu RC",
+                            "lat": 1.3515649194,
+                            "lng": 103.8375133444,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ThomsonShunfuRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bedok",
+                    "ccList": [
+                        {
+                            "id": "bedokcc",
+                            "label": "Bedok CC",
+                            "lat": 1.3243060451,
+                            "lng": 103.9358641146,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BedokCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BedokCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "BedokCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "eunoscc",
+                            "label": "Eunos CC",
+                            "lat": 1.3325214927,
+                            "lng": 103.9152363113,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "EunosCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "EunosCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "fengshancc",
+                            "label": "Fengshan CC",
+                            "lat": 1.33094,
+                            "lng": 103.93663,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "FengshanCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kakibukitcc",
+                            "label": "Kaki Bukit CC",
+                            "lat": 1.3333944893,
+                            "lng": 103.9272150548,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KakiBukitCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KakiBukitCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongchaicheecc",
+                            "label": "Kampong Chai Chee CC",
+                            "lat": 1.3268643855,
+                            "lng": 103.9321295159,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongChaiCheeCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongkembangancc",
+                            "label": "Kampong Kembangan CC",
+                            "lat": 1.3233368236,
+                            "lng": 103.9127478088,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongKembanganCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "siglapcc",
+                            "label": "Siglap CC",
+                            "lat": 1.317498,
+                            "lng": 103.947121,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "SiglapCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "SiglapCC_FUTSALCOURT",
+                                    "value": "FUTSAL COURT"
+                                },
+                                {
+                                    "id": "SiglapCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bishan",
+                    "ccList": [
+                        {
+                            "id": "bishancc",
+                            "label": "Bishan CC",
+                            "lat": 1.3497687998,
+                            "lng": 103.8507501427,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BishanCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BishanCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "marymountcc",
+                            "label": "Marymount CC",
+                            "lat": 1.3621389944,
+                            "lng": 103.8412903111,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "MarymountCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "MarymountCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "potongpasircc",
+                            "label": "Potong Pasir CC",
+                            "lat": 1.3327462232,
+                            "lng": 103.8672159753,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PotongPasirCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "thomsoncc",
+                            "label": "Thomson CC",
+                            "lat": 1.3585760046,
+                            "lng": 103.8455927066,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ThomsonCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ThomsonCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bishaneastzone3rc",
+                            "label": "Bishan East Zone 3 RC",
+                            "lat": 1.3480417273,
+                            "lng": 103.8507268868,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BishanEastZone3RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "BishanEastZone3RC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bishaneastzone6rc",
+                            "label": "Bishan East Zone 6 RC",
+                            "lat": 1.3466250748,
+                            "lng": 103.8550331732,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BishanEastZone6RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "BishanEastZone6RC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bishannorthzone4rc",
+                            "label": "Bishan North Zone 4 RC",
+                            "lat": 1.3589868933,
+                            "lng": 103.8433244184,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BishanNorthZone4RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "thomsonshunfurc",
+                            "label": "Thomson Shunfu RC",
+                            "lat": 1.3515649194,
+                            "lng": 103.8375133444,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ThomsonShunfuRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Boon Lay",
+                    "ccList": [
+                        {
+                            "id": "boonlaycc",
+                            "label": "Boon Lay CC",
+                            "lat": 1.3483232321,
+                            "lng": 103.7113801775,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BoonLayCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BoonLayCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yuhuacc",
+                            "label": "Yuhua CC",
+                            "lat": 1.3399585132,
+                            "lng": 103.7371158326,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YuhuaCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "YuhuaCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bukit Batok",
+                    "ccList": [
+                        {
+                            "id": "bukitbatokcc",
+                            "label": "Bukit Batok CC",
+                            "lat": 1.3504592976,
+                            "lng": 103.7472778694,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BukitBatokCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BukitBatokCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "hongkahnorthcc",
+                            "label": "Hong Kah North CC",
+                            "lat": 1.3588537018,
+                            "lng": 103.7491776958,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HongKahNorthCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "HongKahNorthCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bukit Merah",
+                    "ccList": [
+                        {
+                            "id": "bukitmerahcc",
+                            "label": "Bukit Merah CC",
+                            "lat": 1.2852542713,
+                            "lng": 103.8158285406,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BukitMerahCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "hendersoncc",
+                            "label": "Henderson CC",
+                            "lat": 1.2856119449,
+                            "lng": 103.8233175549,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HendersonCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "HendersonCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kimsengcc",
+                            "label": "Kim Seng CC",
+                            "lat": 1.2895091974,
+                            "lng": 103.8306523075,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KimSengCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KimSengCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "lengkeecc",
+                            "label": "Leng Kee CC",
+                            "lat": 1.2897299955,
+                            "lng": 103.8142991441,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "LengKeeCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "LengKeeCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "radinmascc",
+                            "label": "Radin Mas CC",
+                            "lat": 1.2758716042,
+                            "lng": 103.8200076434,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "RadinMasCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "telokblangahcc",
+                            "label": "Telok Blangah CC",
+                            "lat": 1.2747682667,
+                            "lng": 103.807694129,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TelokBlangahCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TelokBlangahCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "bukitpurmeizonearc",
+                            "label": "Bukit Purmei Zone A RC",
+                            "lat": 1.273357314,
+                            "lng": 103.8253458218,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BukitPurmeiZoneARC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "BukitPurmeiZoneARC_FUTSALCOURT",
+                                    "value": "FUTSAL COURT"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "havelockviewrc",
+                            "label": "Havelock View RC",
+                            "lat": 1.2899462,
+                            "lng": 103.8276797,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HavelockViewRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bukit Panjang",
+                    "ccList": [
+                        {
+                            "id": "bukitpanjangcc",
+                            "label": "Bukit Panjang CC",
+                            "lat": 1.3764121854,
+                            "lng": 103.7710009282,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BukitPanjangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BukitPanjangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "senjacashewcc",
+                            "label": "Senja-Cashew CC",
+                            "lat": 1.3819604716,
+                            "lng": 103.7647216739,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "SenjaCashewCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "SenjaCashewCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "SenjaCashewCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "zhenghuacc",
+                            "label": "Zhenghua CC",
+                            "lat": 1.3868890014,
+                            "lng": 103.771719585,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ZhenghuaCC_BADMINTONCOURT",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ZhenghuaCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ZhenghuaCC_MULTIPURPOSEHALL",
+                                    "value": "MULTI-PURPOSE HALL"
+                                },
+                                {
+                                    "id": "ZhenghuaCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Bukit Timah",
+                    "ccList": [
+                        {
+                            "id": "bukittimahcc",
+                            "label": "Bukit Timah CC",
+                            "lat": 1.3405868985,
+                            "lng": 103.7718183804,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BukitTimahCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BukitTimahCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "hillviewcc",
+                            "label": "Hillview CC",
+                            "lat": 1.3619672534,
+                            "lng": 103.7642663821,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HillviewCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "queenstownstirlingviewzonerc",
+                            "label": "Queenstown Stirling View Zone RC",
+                            "lat": 1.2906996598,
+                            "lng": 103.8023629496,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "QueenstownStirlingViewZoneRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Choa Chu Kang",
+                    "ccList": [
+                        {
+                            "id": "chuachukangcc",
+                            "label": "Chua Chu Kang CC",
+                            "lat": 1.3811542065,
+                            "lng": 103.7519071693,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ChuaChuKangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ChuaChuKangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "keathongcc",
+                            "label": "Keat Hong CC",
+                            "lat": 1.3840958724,
+                            "lng": 103.7449493593,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KeatHongCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KeatHongCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yewteecc",
+                            "label": "Yew Tee CC",
+                            "lat": 1.3948331221,
+                            "lng": 103.7447905013,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YewTeeCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "YewTeeCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "limbanggreenrc",
+                            "label": "Limbang Green RC",
+                            "lat": 1.3963268,
+                            "lng": 103.7449555,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "LimbangGreenRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "limbangparkrc",
+                            "label": "Limbang Park RC",
+                            "lat": 1.3888309,
+                            "lng": 103.7420493,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "LimbangParkRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "limbangviewrc",
+                            "label": "Limbang View RC",
+                            "lat": 1.3936728,
+                            "lng": 103.7425861,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "LimbangViewRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "stagmontparkrc",
+                            "label": "Stagmont Park RC",
+                            "lat": 1.3946111,
+                            "lng": 103.7479112,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "StagmontParkRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yewteezone11rc",
+                            "label": "Yew Tee Zone 11 RC",
+                            "lat": 1.4034943,
+                            "lng": 103.7486772,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YewTeeZone11RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yewteezone12rc",
+                            "label": "Yew Tee Zone 12 RC",
+                            "lat": 1.4017407,
+                            "lng": 103.7494962,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YewTeeZone12RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yewteezone7rc",
+                            "label": "Yew Tee Zone 7 RC",
+                            "lat": 1.3994268,
+                            "lng": 103.7437863,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YewTeeZone7RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "YewTeeZone7RC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "yewteezone9rc",
+                            "label": "Yew Tee Zone 9 RC",
+                            "lat": 1.4027763,
+                            "lng": 103.7515399,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "YewTeeZone9RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Clementi",
+                    "ccList": [
+                        {
+                            "id": "ayerrajahcc",
+                            "label": "Ayer Rajah CC",
+                            "lat": 1.3210509944,
+                            "lng": 103.7473907236,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AyerRajahCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "AyerRajahCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "clementicc",
+                            "label": "Clementi CC",
+                            "lat": 1.3188151947,
+                            "lng": 103.7681536821,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ClementiCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "westcoastcc",
+                            "label": "West Coast CC",
+                            "lat": 1.3028553277,
+                            "lng": 103.7650075939,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WestCoastCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "WestCoastCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "westcoastgreenrn",
+                            "label": "West Coast Green RN",
+                            "lat": 1.3057187231,
+                            "lng": 103.7621677689,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WestCoastGreenRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "westcoastheightsrn",
+                            "label": "West Coast Heights RN",
+                            "lat": 1.3103201668,
+                            "lng": 103.7604115622,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WestCoastHeightsRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "westcoastvillern",
+                            "label": "West Coast Ville RN",
+                            "lat": 1.3043478805,
+                            "lng": 103.7665321477,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WestCoastVilleRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "westcoastvistarn",
+                            "label": "West Coast Vista RN",
+                            "lat": 1.3044004654,
+                            "lng": 103.7627462226,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WestCoastVistaRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Geylang",
+                    "ccList": [
+                        {
+                            "id": "geylangseraicc",
+                            "label": "Geylang Serai CC",
+                            "lat": 1.3164941574,
+                            "lng": 103.8967884183,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "GeylangSeraiCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "GeylangSeraiCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kallangcc",
+                            "label": "Kallang CC",
+                            "lat": 1.3178029103,
+                            "lng": 103.8623732799,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KallangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongkembangancc",
+                            "label": "Kampong Kembangan CC",
+                            "lat": 1.3233368236,
+                            "lng": 103.9127478088,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongKembanganCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongubicc",
+                            "label": "Kampong Ubi CC",
+                            "lat": 1.3180875132,
+                            "lng": 103.9004755287,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongUbiCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "KampongUbiCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KampongUbiCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayercc",
+                            "label": "Kolam Ayer CC",
+                            "lat": 1.3242118922,
+                            "lng": 103.8697334698,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "jalanbesarboonkengvillern",
+                            "label": "Jalan Besar Boon Keng Ville RN",
+                            "lat": 1.3152635394,
+                            "lng": 103.8706889143,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JalanBesarBoonKengVilleRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerkallangbahrurn",
+                            "label": "Kolam Ayer Kallang Bahru RN",
+                            "lat": 1.3203466372,
+                            "lng": 103.8683475059,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerKallangBahruRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerstgeorgeswestrc",
+                            "label": "Kolam Ayer St George's West RN",
+                            "lat": 1.3234026369,
+                            "lng": 103.8616308008,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerStGeorgesWestRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerwhampoasouthrn",
+                            "label": "Kolam Ayer Whampoa South RN",
+                            "lat": 1.3200579778,
+                            "lng": 103.8669394392,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerWhampoaSouthRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Hougang",
+                    "ccList": [
+                        {
+                            "id": "fernvalecc",
+                            "label": "Fernvale CC",
+                            "lat": 1.3916,
+                            "lng": 103.8771,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "FernvaleCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "hougangcc",
+                            "label": "Hougang CC",
+                            "lat": 1.3646236981,
+                            "lng": 103.8922303691,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HougangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "HougangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "payalebarkovancc",
+                            "label": "Paya Lebar Kovan CC",
+                            "lat": 1.357598306,
+                            "lng": 103.8863135313,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PayaLebarKovanCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "PayaLebarKovanCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "punggolcc",
+                            "label": "Punggol CC",
+                            "lat": 1.3743699882,
+                            "lng": 103.8919119303,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PunggolCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "PunggolCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohouganghibiscusrn",
+                            "label": "Ang Mo Kio-Hougang Hibiscus RN",
+                            "lat": 1.377528001,
+                            "lng": 103.8936031686,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangHibiscusRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "AngMoKioHougangHibiscusRN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohougangixorarn",
+                            "label": "Ang Mo Kio-Hougang Ixora RN",
+                            "lat": 1.3706789211,
+                            "lng": 103.8871365947,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangIxoraRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohouganglavenderrn",
+                            "label": "Ang Mo Kio-Hougang Lavender RN",
+                            "lat": 1.3767058461,
+                            "lng": 103.8824972364,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangLavenderRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohougangmaplern",
+                            "label": "Ang Mo Kio-Hougang Maple RN",
+                            "lat": 1.3757454443,
+                            "lng": 103.885412786,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangMapleRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "AngMoKioHougangMapleRN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohougangpinetreern",
+                            "label": "Ang Mo Kio-Hougang Pinetree RN",
+                            "lat": 1.3782707249,
+                            "lng": 103.8874850986,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangPinetreeRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "AngMoKioHougangPinetreeRN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "angmokiohougangplumeriarn",
+                            "label": "Ang Mo Kio-Hougang Plumeria RN",
+                            "lat": 1.371545526,
+                            "lng": 103.8806199422,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AngMoKioHougangPlumeriaRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Jurong East",
+                    "ccList": [
+                        {
+                            "id": "tamanjurongcc",
+                            "label": "Taman Jurong CC",
+                            "lat": 1.3352778002,
+                            "lng": 103.7217229631,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TamanJurongCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TamanJurongCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Jurong West",
+                    "ccList": [
+                        {
+                            "id": "gekpohvillecc",
+                            "label": "Gek Poh Ville CC",
+                            "lat": 1.3487228272,
+                            "lng": 103.6988219709,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "GekPohVilleCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "GekPohVilleCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "juronggreencc",
+                            "label": "Jurong Green CC",
+                            "lat": 1.3506086825,
+                            "lng": 103.7253867213,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JurongGreenCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "JurongGreenCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "jurongspringcc",
+                            "label": "Jurong Spring CC",
+                            "lat": 1.3483301683,
+                            "lng": 103.7181504471,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JurongSpringCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "JurongSpringCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "JurongSpringCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "nanyangcc",
+                            "label": "Nanyang CC",
+                            "lat": 1.3426351832,
+                            "lng": 103.6923013794,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "NanyangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "NanyangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tamanjurongcc",
+                            "label": "Taman Jurong CC",
+                            "lat": 1.3352778002,
+                            "lng": 103.7217229631,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TamanJurongCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TamanJurongCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "thefrontiercc",
+                            "label": "The Frontier CC",
+                            "lat": 1.3405458565,
+                            "lng": 103.7045384744,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TheFrontierCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TheFrontierCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "pioneerzone8rn",
+                            "label": "Pioneer Zone 8 RN",
+                            "lat": 1.3359131,
+                            "lng": 103.6994258,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PioneerZone8RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "pioneerzone9rn",
+                            "label": "Pioneer Zone 9 RN",
+                            "lat": 1.3392534,
+                            "lng": 103.7002192,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PioneerZone9RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "PioneerZone9RN_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Kallang",
+                    "ccList": [
+                        {
+                            "id": "jalanbesarcc",
+                            "label": "Jalan Besar CC",
+                            "lat": 1.3077644091,
+                            "lng": 103.8617276684,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JalanBesarCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "JalanBesarCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kallangcc",
+                            "label": "Kallang CC",
+                            "lat": 1.3178029103,
+                            "lng": 103.8623732799,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KallangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongglamcc",
+                            "label": "Kampong Glam CC",
+                            "lat": 1.3030128104,
+                            "lng": 103.8634802631,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongGlamCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KampongGlamCC_TENNISCOURT",
+                                    "value": "TENNIS COURT"
+                                },
+                                {
+                                    "id": "KampongGlamCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayercc",
+                            "label": "Kolam Ayer CC",
+                            "lat": 1.3242118922,
+                            "lng": 103.8697334698,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "pekkiocc",
+                            "label": "Pek Kio CC",
+                            "lat": 1.3130511312,
+                            "lng": 103.8513669613,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PekKioCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "PekKioCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "PekKioCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "PekKioCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "whampoacc",
+                            "label": "Whampoa CC",
+                            "lat": 1.3247343567,
+                            "lng": 103.8569419367,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WhampoaCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "WhampoaCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerkallangbahrurn",
+                            "label": "Kolam Ayer Kallang Bahru RN",
+                            "lat": 1.3203466372,
+                            "lng": 103.8683475059,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerKallangBahruRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerstgeorgeswestrc",
+                            "label": "Kolam Ayer St George's West RN",
+                            "lat": 1.3234026369,
+                            "lng": 103.8616308008,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerStGeorgesWestRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kolamayerwhampoasouthrn",
+                            "label": "Kolam Ayer Whampoa South RN",
+                            "lat": 1.3200579778,
+                            "lng": 103.8669394392,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KolamAyerWhampoaSouthRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Marine Parade",
+                    "ccList": [
+                        {
+                            "id": "joochiatcc",
+                            "label": "Joo Chiat CC",
+                            "lat": 1.3075691773,
+                            "lng": 103.904067734,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JooChiatCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "JooChiatCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "JooChiatCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kampongubicc",
+                            "label": "Kampong Ubi CC",
+                            "lat": 1.3180875132,
+                            "lng": 103.9004755287,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KampongUbiCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "KampongUbiCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KampongUbiCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Outram",
+                    "ccList": [
+                        {
+                            "id": "kimsengcc",
+                            "label": "Kim Seng CC",
+                            "lat": 1.2895091974,
+                            "lng": 103.8306523075,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KimSengCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "KimSengCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "kretaayercc",
+                            "label": "Kreta Ayer CC",
+                            "lat": 1.2812078852,
+                            "lng": 103.8430205291,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "KretaAyerCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tanjongpagarcc",
+                            "label": "Tanjong Pagar CC",
+                            "lat": 1.2760766837,
+                            "lng": 103.8415963328,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TanjongPagarCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tiongbahrucc",
+                            "label": "Tiong Bahru CC",
+                            "lat": 1.2834698539,
+                            "lng": 103.831911815,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TiongBahruCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TiongBahruCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "havelockviewrc",
+                            "label": "Havelock View RC",
+                            "lat": 1.2899462,
+                            "lng": 103.8276797,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "HavelockViewRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tanjongpagarspottiswoodeparkrc",
+                            "label": "Tanjong Pagar Spottiswoode Park RC",
+                            "lat": 1.274427547,
+                            "lng": 103.8348787847,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TanjongPagarSpottiswoodeParkRC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TanjongPagarSpottiswoodeParkRC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Pasir Ris",
+                    "ccList": [
+                        {
+                            "id": "pasirriseastcc",
+                            "label": "Pasir Ris East CC",
+                            "lat": 1.3684683458,
+                            "lng": 103.9594140684,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PasirRisEastCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "PasirRisEastCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "PasirRisEastCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "pasirriseliascc",
+                            "label": "Pasir Ris Elias CC",
+                            "lat": 1.3783882427,
+                            "lng": 103.9430392228,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PasirRisEliasCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "PasirRisEliasCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Paya Lebar",
+                    "ccList": [
+                        {
+                            "id": "eunoscc",
+                            "label": "Eunos CC",
+                            "lat": 1.3325214927,
+                            "lng": 103.9152363113,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "EunosCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "EunosCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "macphersoncc",
+                            "label": "MacPherson CC",
+                            "lat": 1.3235875356,
+                            "lng": 103.8844586161,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "MacphersonCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "MacphersonCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Punggol",
+                    "ccList": [
+                        {
+                            "id": "rivervalecc",
+                            "label": "Rivervale CC",
+                            "lat": 1.3932795325,
+                            "lng": 103.9019416605,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "RivervaleCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "RivervaleCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "punggolcoralrc",
+                            "label": "Punggol Coral RC",
+                            "lat": 1.3937838895,
+                            "lng": 103.9109814916,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PunggolCoralRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "punggolmeadowsrc",
+                            "label": "Punggol Meadows RC",
+                            "lat": 1.39879751,
+                            "lng": 103.9158456918,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PunggolMeadowsRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Queenstown",
+                    "ccList": [
+                        {
+                            "id": "buonavistacc",
+                            "label": "Buona Vista CC",
+                            "lat": 1.3091830331,
+                            "lng": 103.7926404803,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BuonaVistaCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "BuonaVistaCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "queenstowncc",
+                            "label": "Queenstown CC",
+                            "lat": 1.2990176631,
+                            "lng": 103.8013224852,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "QueenstownCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "QueenstownCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "queenstownstirlingviewzonerc",
+                            "label": "Queenstown Stirling View Zone RC",
+                            "lat": 1.2906996598,
+                            "lng": 103.8023629496,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "QueenstownStirlingViewZoneRC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Sembawang",
+                    "ccList": [
+                        {
+                            "id": "canberracc",
+                            "label": "Canberra CC",
+                            "lat": 1.445044137,
+                            "lng": 103.8194737311,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "CanberraCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "CanberraCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "marsilingcc",
+                            "label": "Marsiling CC",
+                            "lat": 1.4408633725,
+                            "lng": 103.7737862182,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "MarsilingCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "MarsilingCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sembawangcc",
+                            "label": "Sembawang CC",
+                            "lat": 1.4517078496,
+                            "lng": 103.8288141462,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "SembawangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Sengkang",
+                    "ccList": [
+                        {
+                            "id": "anchorvalecc",
+                            "label": "Anchorvale CC",
+                            "lat": 1.3970832979,
+                            "lng": 103.8866942405,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AnchorvaleCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "AnchorvaleCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "AnchorvaleCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "sengkangcc",
+                            "label": "Sengkang CC",
+                            "lat": 1.3927056772,
+                            "lng": 103.8940639371,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "SengkangCC_ACTIVITYGROUPROOM",
+                                    "value": "ACTIVITY GROUP ROOM"
+                                },
+                                {
+                                    "id": "SengkangCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "SengkangCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Serangoon",
+                    "ccList": [
+                        {
+                            "id": "braddellheightscc",
+                            "label": "Braddell Heights CC",
+                            "lat": 1.3518886416,
+                            "lng": 103.8705150734,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "BraddellHeightsCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "jalankayuzone3rc",
+                            "label": "Jalan Kayu Zone 3 RC",
+                            "lat": 1.3748252331,
+                            "lng": 103.8701468447,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JalanKayuZone3RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "jalankayuzone7rc",
+                            "label": "Jalan Kayu Zone 7 RC",
+                            "lat": 1.3804523079,
+                            "lng": 103.8793331947,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "JalanKayuZone7RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Tampines",
+                    "ccList": [
+                        {
+                            "id": "changisimeicc",
+                            "label": "Changi Simei CC",
+                            "lat": 1.3449655147,
+                            "lng": 103.9551678077,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ChangiSimeiCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ChangiSimeiCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "ourtampineshub",
+                            "label": "Our Tampines Hub",
+                            "lat": 1.3531335742,
+                            "lng": 103.9404082138,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "OurTampinesHub_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "OurTampinesHub_BBQPIT",
+                                    "value": "BBQ PIT (CC)"
+                                },
+                                {
+                                    "id": "OurTampinesHub_FUTSALCOURT",
+                                    "value": "FUTSAL COURT"
+                                },
+                                {
+                                    "id": "OurTampinesHub_SOCCERFIELD",
+                                    "value": "SOCCER FIELD"
+                                },
+                                {
+                                    "id": "OurTampinesHub_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "OurTampinesHub_TENNISCOURT",
+                                    "value": "TENNIS COURT"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampineschangkatcc",
+                            "label": "Tampines Changkat CC",
+                            "lat": 1.3458133499,
+                            "lng": 103.9476878279,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesChangkatCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampineseastcc",
+                            "label": "Tampines East CC",
+                            "lat": 1.3532930611,
+                            "lng": 103.9546239078,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesEastCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TampinesEastCC_FUTSALCOURT",
+                                    "value": "FUTSAL COURT"
+                                },
+                                {
+                                    "id": "TampinesEastCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampinesnorthcc",
+                            "label": "Tampines North CC",
+                            "lat": 1.3572781666,
+                            "lng": 103.9466206954,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesNorthCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "TampinesNorthCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampinesnorthsunplazarn",
+                            "label": "Tampines North SunPlaza RN",
+                            "lat": 1.3582722132,
+                            "lng": 103.9473089497,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesNorthSunplazaRN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampinesnorthzone3rn",
+                            "label": "Tampines North Zone 3 RN",
+                            "lat": 1.3595525808,
+                            "lng": 103.950148194,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesNorthZone3RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tampinesnorthzone7rn",
+                            "label": "Tampines North Zone 7 RN",
+                            "lat": 1.3618904823,
+                            "lng": 103.9577414571,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TampinesNorthZone7RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone2rn",
+                            "label": "Toa Payoh East Zone 2 RN",
+                            "lat": 0.0,
+                            "lng": 0.0,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone2RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone4rn",
+                            "label": "Toa Payoh East Zone 4 RN",
+                            "lat": 0.0,
+                            "lng": 0.0,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone4RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Tanglin",
+                    "ccList": [
+                        {
+                            "id": "cairnhillcc",
+                            "label": "Cairnhill CC",
+                            "lat": 1.3103876746,
+                            "lng": 103.8388827078,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "CairnhillCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "CairnhillCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "tanglincc",
+                            "label": "Tanglin CC",
+                            "lat": 1.3231844843,
+                            "lng": 103.8269143033,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "TanglinCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Toa Payoh",
+                    "ccList": [
+                        {
+                            "id": "potongpasircc",
+                            "label": "Potong Pasir CC",
+                            "lat": 1.3327462232,
+                            "lng": 103.8672159753,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "PotongPasirCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayohcentralcc",
+                            "label": "Toa Payoh Central CC",
+                            "lat": 1.3348262487,
+                            "lng": 103.85030127,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohCentralCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ToaPayohCentralCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "ToaPayohCentralCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastcc",
+                            "label": "Toa Payoh East CC",
+                            "lat": 1.3362748979,
+                            "lng": 103.8547002489,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ToaPayohEastCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayohsouthcc",
+                            "label": "Toa Payoh South CC",
+                            "lat": 1.3350659038,
+                            "lng": 103.85926907,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohSouthCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ToaPayohSouthCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "ToaPayohSouthCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "ToaPayohSouthCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayohwestcc",
+                            "label": "Toa Payoh West CC",
+                            "lat": 1.3350670025,
+                            "lng": 103.845130612,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohWestCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ToaPayohWestCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone2rc",
+                            "label": "Toa Payoh East Zone 2 RC",
+                            "lat": 1.3391488003,
+                            "lng": 103.8587796618,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone2RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                },
+                                {
+                                    "id": "ToaPayohEastZone2RC_FUNCTIONROOM",
+                                    "value": "FUNCTION ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone2rn",
+                            "label": "Toa Payoh East Zone 2 RN",
+                            "lat": 0.0,
+                            "lng": 0.0,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone2RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone4rc",
+                            "label": "Toa Payoh East Zone 4 RC",
+                            "lat": 1.3328451998,
+                            "lng": 103.8578287719,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone4RC_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "toapayoheastzone4rn",
+                            "label": "Toa Payoh East Zone 4 RN",
+                            "lat": 0.0,
+                            "lng": 0.0,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ToaPayohEastZone4RN_BBQPIT",
+                                    "value": "BBQ PIT (RC)"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Woodlands",
+                    "ccList": [
+                        {
+                            "id": "acetheplacecc",
+                            "label": "ACE The Place CC",
+                            "lat": 1.4271439633,
+                            "lng": 103.7922880063,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "AceThePlaceCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "AceThePlaceCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                },
+                                {
+                                    "id": "AceThePlaceCC_MULTIPURPOSEHALL",
+                                    "value": "MULTI-PURPOSE HALL"
+                                },
+                                {
+                                    "id": "AceThePlaceCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "marsilingcc",
+                            "label": "Marsiling CC",
+                            "lat": 1.4408633725,
+                            "lng": 103.7737862182,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "MarsilingCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "MarsilingCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "woodlandscc",
+                            "label": "Woodlands CC",
+                            "lat": 1.4397303487,
+                            "lng": 103.7882354031,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WoodlandsCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "WoodlandsCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "WoodlandsCC_FUTSALCOURT",
+                                    "value": "FUTSAL COURT"
+                                },
+                                {
+                                    "id": "WoodlandsCC_SEPAKTAKRAWCOURT",
+                                    "value": "SEPAK TAKRAW COURT"
+                                },
+                                {
+                                    "id": "WoodlandsCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "woodlandsgalaxycc",
+                            "label": "Woodlands Galaxy CC",
+                            "lat": 1.4387991437,
+                            "lng": 103.8025186999,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "WoodlandsGalaxyCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "WoodlandsGalaxyCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                },
+                {
+                    "neighbourhood": "Yishun",
+                    "ccList": [
+                        {
+                            "id": "chongpangcc",
+                            "label": "Chong Pang CC",
+                            "lat": 1.4310343315,
+                            "lng": 103.8294323675,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "ChongPangCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "ChongPangCC_BASKETBALLCOURT",
+                                    "value": "BASKETBALL COURT"
+                                },
+                                {
+                                    "id": "ChongPangCC_TABLETENNISROOM",
+                                    "value": "TABLE TENNIS ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "neesooncentralcc",
+                            "label": "Nee Soon Central CC",
+                            "lat": 1.4278659182,
+                            "lng": 103.8361717165,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "NeeSoonCentralCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "neesooneastcc",
+                            "label": "Nee Soon East CC",
+                            "lat": 1.4307710551,
+                            "lng": 103.8385982236,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "NeeSoonEastCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "NeeSoonEastCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "neesoonsouthcc",
+                            "label": "Nee Soon South CC",
+                            "lat": 1.4149736771,
+                            "lng": 103.8348798085,
+                            "itemName": null,
+                            "categories": null,
+                            "productList": [
+                                {
+                                    "id": "NeeSoonSouthCC_BADMINTONCOURTS",
+                                    "value": "BADMINTON COURTS"
+                                },
+                                {
+                                    "id": "NeeSoonSouthCC_CONFERENCEROOM",
+                                    "value": "CONFERENCE ROOM"
+                                }
+                            ]
+                        }
+                    ],
+                    "itemName": null
+                }
+            ]
+        },
+        "configuration": null
+    }
+}
