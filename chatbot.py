@@ -22,7 +22,7 @@ with col2:
     - Choose between 2 LLM providers
         - **Vertex**: PaLM2 (chat-bison) on Google Cloud Vertex AI
         - **OpenAI**: GPT-4 on Azure OpenAI Service
-    - **Note**: Switching LLM providers mid-conversation may make it mimic earlier responses from the chat history.
+    - **Note**: Switching LLM providers mid-conversation may cause it mimic earlier responses from the chat history. Recommend restarting the conversation to get a feel for the difference.
     '''
 
     llm_choice = st.radio(
@@ -57,11 +57,7 @@ if prompt := st.chat_input():
     st.chat_message("user").write(prompt)
     
     response = respond_to_user_input(prompt, st.session_state.messages, simulation_mode)
-    response = get_conversational_response(
-        st.session_state.messages,
-        prompt,
-        response
-    )
+    #response = get_translated_response(prompt,response)
 
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.session_state.messages.append({"role": "assistant", "content": response})

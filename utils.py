@@ -334,27 +334,30 @@ def understand_user_intent(user_input_str, chat_history):
     class UserInput(BaseModel):
         type_of_request: str = Field(description='the type of request that the client is making based on the latest message. This will be one of the following values: conversational_message, request_question')
         crux_message: str = Field(description="A summary sentence of the human's request from the AI's perspective.")
+        humans_language: str = Field(description="Identified language the human is comfortable with.")
             
     parser = PydanticOutputParser(pydantic_object=UserInput)
     format_instructions = parser.get_format_instructions()
     
     template = """
 You are reviewing a conversation between a Badminton Court booking assistant and a human. 
-Your objective is to analyze the chat history and the latest human input to infer the ultimate request the human is seeking.
-Give more importance to the latest human input in your analysis, and use the chat history to understand the user's final intent.
+Analyze the <latest human input> to infer ultimate request the human is seeking. If information is unavailable, reference the <chat history> to understand the human's intent.
 
+<Chat history>:
 ```
 {chat_history}
+<Latest human input>: {user_input}
 ```
-Latest human input: ```{user_input}```
 
-Extract the following information in JSON format:
+Output the information in JSON format:
 
 <type_of_request>: The type of request that the client is making making based on the latest message. This will be one of the following values:
 - conversational_message. For example: Hi. Thank you! How are you? Bye bye. Happy birthday to you!
 - request_question. For example: What can you do? Is there a badminton court available? What about next week? I'm looking for a badminton court. Yes please. Go ahead. 
 
 <crux_message>: A summary sentence of the human's request from the AI's perspective, based on the latest human input and the chat history.
+
+<humans_language>: Identify the language that the human is comfortable in based on the ongoing conversation. This will be one of the following values: English, Chinese, Malay, Tamil
 
 {format_instructions}
     """
@@ -368,7 +371,7 @@ Extract the following information in JSON format:
         chat_history=chat_history,
         user_input=user_input_str
     )
-    
+
     llm = get_llm_instance()
 
     response = llm(messages) 
@@ -390,8 +393,8 @@ def extract_search_parameters(user_input):
     
     template = """
 Extract the following information from <Human request> in JSON format. If the information is not found, just output ["none"]:
-<locations>: List out all locations that are mentioned in the human's request. For example: Hougang, Queenstown, Tampines, Serangoon, Bedok, East Coast Park, Marine Parade
-<dates>: List out all relative date references that are mentioned in human's request. For example: next week, this weekend, Tuesday, Fridays, 2023-08-15, 15th Aug, Sept 23, today, tomorrow, between Aug 1 and Aug 10, 1st Aug to 10th Aug, 2023-08-01 to 2023-08-10
+<locations>: List out all locations that are mentioned in the human's request. Examples of locations include: Hougang, Queenstown, Tampines, Serangoon, Bedok, East Coast Park, Marine Parade
+<dates>: List out all relative date references that are mentioned in human's request. Examples of date references include: next week, this weekend, Tuesday, Fridays, 2023-08-15, 15th Aug, Sept 23, today, tomorrow, between Aug 1 and Aug 10, 1st Aug to 10th Aug, 2023-08-01 to 2023-08-10
 
 <Human request>: ```{user_input}```
 
@@ -518,7 +521,7 @@ Repeat the human's request as a Badminton Court Booking Assistant to demonstrate
 
     return response.content
 
-def get_available_slots_bot_response(user_request, rephrase_user_request, available_slots, search_param):
+def get_available_slots_bot_response(user_request, rephrase_user_request, available_slots, search_param, humans_language="English"):
     
     system_template = """
 You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
@@ -533,7 +536,7 @@ Note:
 - I must provide all details above, especially the the booking URL link(s) for the human to do their booking via the website!
 ``` END DRAFT SCRATCHPAD ```
 
-Response:
+Response in {humans_language}:
 """
     prompt = ChatPromptTemplate.from_template(
         template=system_template,
@@ -546,6 +549,7 @@ Response:
         rephrase_user_request = rephrase_user_request,
         available_slots = available_slots,
         search_param = search_param,
+        humans_language=humans_language
     )
 
     return response
@@ -567,59 +571,53 @@ def construct_chat_history(session_state_chat_history):
 
     return chat_history_buffer
 
+'''
+def get_translated_response(user_msg,tentative_response):
 
-def get_conversational_response(session_state_chat_history,user_msg,tentative_response):
-    chat_history = construct_chat_history(session_state_chat_history)
     system_template = """
-The following is a friendly conversation between a human and an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
-The assistant's main objective is to aid clients in securing their desired Badminton Courts by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking Badminton Courts.
+Translate the response to 
 
-Current conversation:
-```
-{history}
-Human: {input}
-```
+<Human input>: {user_msg}
+<Response to be translated>: {tentative_response}
 
-Your tentative response as follows. Create a reply that is consistent with the ongoing conversation in the human's original language.
-
-``` START TENTATIVE RESPONSE SCRATCHPAD ```
-{tentative_response}
-``` END TENTATIVE RESPONSE SCRATCHPAD ```
-
-Response: 
-
+Translated response: 
 """
-    conversation = ConversationChain(llm = get_llm_instance(), memory=chat_history, verbose=True)
-    conversation.prompt = PromptTemplate.from_template(system_template)
+    prompt = ChatPromptTemplate.from_template(
+        template=system_template,
+    )
 
-    response = conversation.predict(
-        input = user_msg,
-        tentative_response=tentative_response,
+    chain = LLMChain(llm=get_llm_instance(), prompt=prompt, verbose=True)
+    
+    response = chain.run(
+        user_msg = user_msg,
+        tentative_response = tentative_response,
     )
 
     return response
+'''
 
-def respond_to_conversational_message(chat_history, conversational_msg):
+def respond_to_conversational_message(chat_history, conversational_msg, humans_language='English'):
     system_template = """
 The following is a friendly conversation between a human and an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
 The assistant's main objective is to aid clients in securing their desired Badminton Courts by addressing their inquiries. The assistant ignores all other requests that are not related to helping the client to booking Badminton Courts.
-In response to the ongoing conversation, reply with a friendly tone as it appears the human is engaging in conversation.
+Respond to the ongoing exchange with a friendly tone in {humans_language} as it appears the human is engaging in conversation.
 
 Current conversation:
 {history}
 Human: {input}
-AI:
+AI response in {humans_language}:
 """
     conversation = ConversationChain(llm = get_llm_instance(), memory=chat_history, verbose=True)
     conversation.prompt = PromptTemplate.from_template(system_template)
 
     response = conversation.predict(
         input = conversational_msg,
+        humans_language=humans_language,
     )
 
     return response
 
-def respond_to_get_more_info(user_msg, search_param, is_simulation_mode=True):
+def respond_to_get_more_info(user_msg, search_param, is_simulation_mode=True, humans_language='English'):
 
     missing_info_prompt = ''
 
@@ -635,10 +633,10 @@ def respond_to_get_more_info(user_msg, search_param, is_simulation_mode=True):
             min_date_range = datetime.now().date()
             max_date_range = datetime.now().date() + timedelta(days=16)
 
-        missing_info_prompt =  missing_info_prompt + f"- I do not know the date the Human is interested in. The date has to be between {min_date_range} and {max_date_range}.\n"
+        missing_info_prompt =  missing_info_prompt + f"- I do not know the date the Human is interested in. I will tell the Human that the date has to be between {min_date_range} and {max_date_range}.\n"
 
     if 'none' in search_param.locations or len(search_param.locations) == 0:
-        missing_info_prompt = missing_info_prompt + "- I do not know where the Human is interested in, or the location given by the Human might be too general. The location will need to be somewhere in Singapore.\n"
+        missing_info_prompt = missing_info_prompt + "- I do not know the location the Human is interested in, or the location given by the Human might be too general. I will tell the Human that the location will need to be somewhere in Singapore.\n"
 
     system_template = """
 You are an AI Badminton Court booking assistant chatbot, but you are in need of more details from the human. The assistant always replies in a happy and friendly tone.
@@ -646,16 +644,16 @@ The assistant's main objective is to aid clients in securing their desired Badmi
 
 <HUMAN REQUEST>: {input}
 
-``` START DRAFT SCRATCHPAD ```
+``` START DRAFT RESPONSE SCRATCHPAD ```
 - I will start my response by stating the details that I already know. The details gathered so far:
     - Location: {location}
     - Dates: {dates}
 - I will ask the human for the missing information:
     {missing_info_prompt}
 - End my message with an example for the human to follow: "For example: I am looking to book a badminton court in <location> on <date>"
-``` END DRAFT SCRATCHPAD ```
+``` END DRAFT RESPONSE SCRATCHPAD ```
 
-Response:
+Response in {humans_language}:
 """
     prompt = ChatPromptTemplate.from_template(
         template=system_template,
@@ -669,25 +667,26 @@ Response:
         location = search_param.locations,
         dates = search_param.dates,
         missing_info_prompt=missing_info_prompt,
+        humans_language=humans_language,
     )
 
     return response
 
-def respond_no_results_found(user_request, rephrase_user_request, search_param):
+def respond_no_results_found(user_request, rephrase_user_request, search_param, humans_language='English'):
     system_template = '''
 You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
 
 <HUMAN REQUEST>: {input}
 
-``` START DRAFT SCRATCHPAD ```
+``` START DRAFT RESPONSE SCRATCHPAD ```
 Note: There are no available timings for {locations} on {dates}'
 - I will start my message with "{rephrase_user_request}"
-- Then, I will list the location and ate options I have looked into.
-- Then, I'll inform the user that there are no available schedules or timings.
+- Then, I will list the location and date options I have looked into.
+- Then, I'll inform the user that there are no available timings.
 - Recommend alternative dates or locations to the user as search parameters, and ask if they'd like to explore these suggested options.
-``` END DRAFT SCRATCHPAD ```
+``` END DRAFT RESPONSE SCRATCHPAD ```
 
-Response:
+Response in {humans_language}:
     '''
     prompt = ChatPromptTemplate.from_template(
         template=system_template,
@@ -699,25 +698,26 @@ Response:
         input = user_request,
         locations = search_param.locations,
         dates = search_param.dates,
-        rephrase_user_request = rephrase_user_request
+        rephrase_user_request = rephrase_user_request,
+        humans_language=humans_language,
     )
 
     return response
 
 
-def respond_too_many_results_found(user_request, rephrase_user_request, result_df):
+def respond_too_many_results_found(user_request, rephrase_user_request, result_df, humans_language='English'):
     system_template = '''
 You are an AI Badminton Court booking assistant chatbot. The assistant always replies in a happy and friendly tone.
 
 <HUMAN REQUEST>: {input}
 
-``` START DRAFT SCRATCHPAD ```
+``` START DRAFT RESPONSE SCRATCHPAD ```
 Note: There are {result_count} options across `{location_list}` during these dates `{date_list}`. This is too many to list out.
 - I will start my message with "{rephrase_user_request}"
 - Then, I will inform the human that there's an abundance of options. I will ask the user for more details like dates and locations to narrow down the options.
-``` END DRAFT SCRATCHPAD ```
+``` END DRAFT RESPONSE SCRATCHPAD ```
 
-Response:
+Response in {humans_language}:
     '''
     prompt = ChatPromptTemplate.from_template(
         template=system_template,
@@ -730,7 +730,8 @@ Response:
         result_count = len(result_df),
         location_list = result_df['outlet_name'].unique(),
         date_list = result_df['date'].unique(),
-        rephrase_user_request = rephrase_user_request
+        rephrase_user_request = rephrase_user_request,
+        humans_language=humans_language
     )
 
     return response
@@ -746,7 +747,7 @@ def respond_to_user_input(user_input, session_state_chat_history, is_simulation_
     print(parsed_user_intent)
 
     if parsed_user_intent.type_of_request == 'conversational_message':
-        return respond_to_conversational_message(chat_history, user_input)
+        return respond_to_conversational_message(chat_history, user_input, parsed_user_intent.humans_language)
 
     #Step 2: extract search parameters
     search_param = extract_search_parameters(parsed_user_intent.crux_message)
@@ -776,7 +777,7 @@ def respond_to_user_input(user_input, session_state_chat_history, is_simulation_
     print(search_param)
 
     if 'none' in search_param.locations or 'none' in search_param.dates or len(search_param.dates) == 0 or len(search_param.locations) == 0:
-        return respond_to_get_more_info(parsed_user_intent.crux_message, search_param, is_simulation_mode)
+        return respond_to_get_more_info(parsed_user_intent.crux_message, search_param, is_simulation_mode, parsed_user_intent.humans_language)
 
     #Step 3: perform search
     st.chat_message("assistant").write(f'Fetching results...')
@@ -789,7 +790,8 @@ def respond_to_user_input(user_input, session_state_chat_history, is_simulation_
             response = respond_no_results_found(
                 parsed_user_intent.crux_message, 
                 rephrase_user_request(parsed_user_intent.crux_message),
-                search_param
+                search_param,
+                parsed_user_intent.humans_language
             )
 
             return response
@@ -798,7 +800,8 @@ def respond_to_user_input(user_input, session_state_chat_history, is_simulation_
             response = respond_too_many_results_found(
                 parsed_user_intent.crux_message, 
                 rephrase_user_request(parsed_user_intent.crux_message),
-                result_df
+                result_df,
+                parsed_user_intent.humans_language
             )
 
             return response
@@ -836,7 +839,8 @@ def respond_to_user_input(user_input, session_state_chat_history, is_simulation_
         parsed_user_intent.crux_message, 
         rephrase_user_request(parsed_user_intent.crux_message),
         formated_result_list,
-        search_param
+        search_param,
+        parsed_user_intent.humans_language
     )
 
     return response
