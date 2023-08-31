@@ -631,7 +631,7 @@ def respond_to_get_more_info(user_msg, search_param, is_simulation_mode=True, hu
 
         else:
             min_date_range = datetime.now().date()
-            max_date_range = datetime.now().date() + timedelta(days=16)
+            max_date_range = datetime.now().date() + timedelta(days=15)
 
         missing_info_prompt =  missing_info_prompt + f"- I do not know the date the Human is interested in. I will tell the Human that the date has to be between {min_date_range} and {max_date_range}.\n"
 
