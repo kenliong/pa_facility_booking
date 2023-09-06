@@ -58,10 +58,17 @@ if st.session_state.agree_llm:
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
-    for msg in st.session_state.messages:
-        st.chat_message(msg["role"]).write(msg["content"])
+    chat_history_box = st.container()
+    with chat_history_box:
+        for msg in st.session_state.messages:
+            st.chat_message(msg["role"]).write(msg["content"])
 
-    if prompt := st.chat_input(disabled = not agree_llm):
+        if 'result_df' in st.session_state and len(st.session_state.result_df) > 0:
+            with st.expander("[Simulation mode] View result query dataset"):
+                st.dataframe(st.session_state.result_df, hide_index=True)
+
+    prompt = st.chat_input(disabled = not agree_llm)
+    if prompt:
 
         st.chat_message("user").write(prompt)
         
@@ -74,6 +81,3 @@ if st.session_state.agree_llm:
         st.chat_message("assistant").write(response)
         st.experimental_rerun()
 
-    if 'result_df' in st.session_state and len(st.session_state.result_df) > 0:
-        with st.expander("[Simulation mode] View result query dataset"):
-            st.dataframe(st.session_state.result_df, hide_index=True)
