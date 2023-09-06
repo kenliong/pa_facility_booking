@@ -1,15 +1,14 @@
 from utils import *
 import streamlit as st
 
+st.set_page_config(page_title='PA facility booking concierge', page_icon='💬', layout="wide", initial_sidebar_state="expanded")
 st.markdown(get_custom_css_modifier(), unsafe_allow_html=True)
 st.markdown("<h5 style='text-align: Left;'>💬 PA facility booking concierge</h5>", unsafe_allow_html=True)
 
-#settings_tab, chat_tab = st.tabs(['settings', 'chat'])
+with st.sidebar:
 
-#with settings_tab:
-
-caveat_text = "I acknowledge that AI language models may generate inaccurate or even hallucinated responses. I understand the importance of using these models with caution, and I take responsibility over the generated output before using them."
-agree_llm = st.checkbox(caveat_text, key='agree_llm')
+    caveat_text = "I acknowledge that AI language models may generate inaccurate or even hallucinated responses. I understand the importance of using these models with caution, and I take responsibility over the generated output before using them."
+    agree_llm = st.checkbox(caveat_text, key='agree_llm')
 
 if st.session_state.agree_llm:
     st.markdown("**Chatbot settings:**")
@@ -55,10 +54,6 @@ if st.session_state.agree_llm:
 
         with st.expander("View simulated dataset"):
             st.dataframe(df, hide_index=True)
-
-#with chat_tab:
-
-if st.session_state.agree_llm: 
 
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
