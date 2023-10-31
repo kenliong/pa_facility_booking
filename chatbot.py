@@ -32,7 +32,7 @@ if st.session_state.agree_llm:
 
         llm_choice = st.radio(
             "Choice of LLM:",
-            ["Vertex", "OpenAI"],
+            ["Vertex-text", "Vertex-chat","OpenAI"],
             #key = 'llm_choice',
             horizontal = True,
             help=llm_choice_description
