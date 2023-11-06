@@ -5,6 +5,7 @@ from pandas import json_normalize
 from datetime import datetime, timedelta
 from dateutil import parser as date_parser
 import calendar
+import pytz
 from math import radians, cos, sin, asin, sqrt
 import time
 import json
@@ -215,12 +216,12 @@ def get_simulated_data():
 
 ## Date formatter functions ##
 def todayDate():
-    today = datetime.now()
+    today = datetime.now(pytz.timezone("Singapore"))
     return today.strftime('%d/%m/%Y')
 
 # get day of week for a date (or 'today')
 def dayOfWeek(date):
-    today = datetime.now()
+    today = datetime.now(pytz.timezone("Singapore"))
     if date == 'today':
         return calendar.day_name[today.weekday()]
     else:
@@ -237,7 +238,7 @@ def get_calendar_reference(today_str = None):
         today = date_parser.parse(today_str, dayfirst=True)
     else:
         # Get today's date
-        today = datetime.now().date()
+        today = datetime.now(pytz.timezone("Singapore")).date()
 
     # Initialize the output string
     output = ""
@@ -258,7 +259,7 @@ def get_valid_dates(today_str = None):
         today = date_parser.parse(today_str, dayfirst=True)
     else:
         # Get today's date
-        today = datetime.now().date()
+        today = datetime.now(pytz.timezone("Singapore")).date()
 
     output = []
 
@@ -686,8 +687,8 @@ def respond_to_get_more_info(search_param, cleaned_dates, cleaned_cc, is_simulat
         max_date_range = max(simulated_date_range)
 
     else:
-        min_date_range = datetime.now().date()
-        max_date_range = datetime.now().date() + timedelta(days=15)
+        min_date_range = datetime.now(pytz.timezone("Singapore")).date()
+        max_date_range = datetime.now(pytz.timezone("Singapore")).date() + timedelta(days=15)
 
     if 'none' in cleaned_dates or len(cleaned_dates) == 0:
         missing_info_msg =  missing_info_msg + f"- Please specify the date you are interested in? Please note that the date should be between {min_date_range.strftime('%d %B %Y')}, and {max_date_range.strftime('%d %B %Y')}.\n"
