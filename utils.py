@@ -110,7 +110,7 @@ def get_llm_instance(model='gpt-4'):
     else:
         
         llm = VertexAI(
-            model_name="text-bison@latest",
+            model_name="text-bison",
             max_output_tokens=1024,
             temperature=0,
             top_p=0.8,
@@ -140,7 +140,7 @@ def get_completion(string_prompt_value):
 
 ## Get Simulated data functions ##
 def getcoordinates(address):
-    req = requests.get('https://developers.onemap.sg/commonapi/search?searchVal='+address+'&returnGeom=Y&getAddrDetails=Y&pageNum=1')
+    req = requests.get(f'https://www.onemap.gov.sg/api/common/elastic/search?searchVal={address}&returnGeom=Y&getAddrDetails=Y&pageNum=1')
     resultsdict = eval(req.text)
     if len(resultsdict['results'])>0:
         return resultsdict['results'][0]['LATITUDE'], resultsdict['results'][0]['LONGITUDE']
