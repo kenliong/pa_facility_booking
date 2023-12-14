@@ -15,11 +15,10 @@ from google.oauth2 import service_account
 from langchain.chat_models import AzureChatOpenAI, ChatVertexAI
 from langchain.llms import VertexAI
 
-from langchain import PromptTemplate
-from langchain.prompts import ChatPromptTemplate
+from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.output_parsers import PydanticOutputParser
-from langchain.chains import ConversationChain, LLMChain
+from langchain.chains import ConversationChain
 
 from pydantic import BaseModel, Field
 from typing import List
@@ -97,28 +96,28 @@ def get_llm_instance(model='gpt-4'):
         
         llm = ChatVertexAI(
             model_name="chat-bison",
-            max_output_tokens=1024,
+            max_output_tokens=2048,
             temperature=0,
             top_p=0.8,
             top_k=40,
             verbose=True,
             credentials = config,
             project=config.project_id,
-            #location='us-central1'
+            location='asia-southeast1'
         )
 
     else:
         
         llm = VertexAI(
             model_name="text-bison",
-            max_output_tokens=1024,
+            max_output_tokens=2048,
             temperature=0,
             top_p=0.8,
             top_k=40,
             verbose=True,
             credentials = config,
             project=config.project_id,
-            #location='us-central1'
+            location='asia-southeast1'
         )
 
     return llm
